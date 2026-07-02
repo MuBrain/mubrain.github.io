@@ -30,7 +30,6 @@ const homePath = getLocalizedPath('home', locale);
 const isLandingPage = currentPath === homePath || currentPath === `${homePath}/`;
 
 // Landing page specific links (anchor links)
-const featuresLink = isLandingPage ? '#features' : `${homePath}#features`;
 const ctaLink = isLandingPage ? '#cta' : `${homePath}#cta`;
 ---
 
@@ -44,13 +43,6 @@ const ctaLink = isLandingPage ? '#cta' : `${homePath}#cta`;
 
     <!-- Desktop Menu -->
     <div class="hidden items-center gap-8 md:flex">
-      <!-- Features link (anchor to landing page section) -->
-      <a
-        href={featuresLink}
-        class="text-sm font-medium text-foreground-muted hover:text-foreground transition-colors"
-      >
-        {t('nav.features')}
-      </a>
 
       <!-- Dynamic navigation from i18n routes -->
       {navRoutes.map(({ routeId, label }) => (
@@ -75,7 +67,7 @@ const ctaLink = isLandingPage ? '#cta' : `${homePath}#cta`;
         >
           <Icon name="github" size="sm" />
         </Button>
-        <Button size="sm" href={ctaLink}>{t('nav.getStarted')}</Button>
+        <Button size="sm" href="/blog/">{t('nav.cta')}</Button>
       </div>
     </div>
 
@@ -98,13 +90,6 @@ const ctaLink = isLandingPage ? '#cta' : `${homePath}#cta`;
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-background border-b border-border p-6 md:hidden flex-col gap-4 shadow-lg">
-    <!-- Features link (anchor to landing page section) -->
-    <a
-      href={featuresLink}
-      class="text-base font-medium text-foreground-secondary hover:text-foreground transition-colors"
-    >
-      {t('nav.features')}
-    </a>
 
     <!-- Dynamic navigation from i18n routes -->
     {navRoutes.map(({ routeId, label }) => (

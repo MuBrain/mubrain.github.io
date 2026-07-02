@@ -1,13 +1,14 @@
 import type { TranslationKeys } from './en';
 
 /**
- * French translations
+ * French Canadian translations
  */
 export const fr: TranslationKeys = {
   // Site
   site: {
-    name: 'Velocity',
-    description: 'Un template de démarrage Astro moderne',
+    name: 'MuBrain',
+    description:
+      'MuBrain est un espace de réflexion, de publication et de structuration de la connaissance autour de l’intelligence artificielle, des agents et des organisations apprenantes.',
   },
 
   // Navigation
@@ -16,11 +17,11 @@ export const fr: TranslationKeys = {
     about: 'À propos',
     blog: 'Blog',
     contact: 'Contact',
-    features: 'Fonctionnalités',
+    features: 'Axes',
     components: 'Composants',
     docs: 'Documentation',
-    getStarted: 'Commencer',
-      faq: 'Faq',
+    getStarted: 'Lire',
+    faq: 'FAQ',
   },
 
   // Common
@@ -29,181 +30,190 @@ export const fr: TranslationKeys = {
     loading: 'Chargement...',
     error: 'Une erreur est survenue',
     notFound: 'Page non trouvée',
-    backHome: "Retour à l'accueil",
+    backHome: "Retour à l’accueil",
     copied: 'Copié !',
     copy: 'Copier',
   },
 
   // Hero Section
   hero: {
-    badge: 'v1.0 Bêta Publique Disponible',
-    title: 'Votre prochain site',
-    titleHighlight: 'commence ici.',
+    badge: 'Base MuBrain en construction',
+    title: 'Structurer la connaissance',
+    titleHighlight: 'pour les humains et les agents IA.',
     description:
-      "Clonez le dépôt. Personnalisez les tokens. Déployez vendredi. Velocity gère les parties fastidieuses pour que vous puissiez vous concentrer sur le travail qui compte.",
-    cta: 'Commencer',
-    github: 'Voir sur GitHub',
-    socialProof: 'Utilisé par plus de 40 agences en production',
+      'MuBrain explore comment documenter, versionner, publier et réutiliser la connaissance avec GitHub, Astro, OKF et des agents IA, sans perdre la maîtrise humaine du sens.',
+    cta: 'Lire',
+    github: 'Voir le dépôt',
+    socialProof: 'Une base documentaire pensée pour les humains, GitHub, Astro et les agents IA.',
   },
 
   // Tech Stack Section
   techStack: {
     astro: {
-      name: 'Astro 6',
-      desc: 'Îles serveur et couche de contenu',
+      name: 'Astro',
+      desc: 'Site statique rapide et maintenable',
     },
     tailwind: {
-      name: 'Tailwind v4',
-      desc: 'Moteur CSS sans runtime',
+      name: 'Tailwind CSS',
+      desc: 'Système visuel flexible et léger',
     },
     typescript: {
       name: 'TypeScript',
-      desc: 'Typage strict par défaut',
+      desc: 'Structure plus fiable pour le code',
     },
     motion: {
-      name: 'Motion',
-      desc: 'Animations déclaratives',
+      name: 'GitHub',
+      desc: 'Versionnement du site et de la connaissance',
     },
   },
 
   // Feature Tabs Section
   features: {
-    sectionTitle: 'Tout ce dont vous avez besoin.',
-    sectionTitleHighlight: 'Rien de superflu.',
+    sectionTitle: 'Une base de connaissance',
+    sectionTitleHighlight: 'avant d’être un simple site.',
     sectionDescription:
-      "Nous avons éliminé le superflu et gardé les primitives qui accélèrent vraiment le développement pour les agences et les freelances.",
+      'MuBrain sépare clairement le contenu public, la connaissance de référence, les méthodes de travail et les décisions structurantes.',
     tabs: {
       design: {
-        label: 'Système de Design',
-        desc: 'Tokens globaux et typographie',
-        title: 'Tokens de Design CSS-First',
+        label: 'Structure',
+        desc: 'Markdown, YAML et conventions',
+        title: 'Une connaissance lisible et réutilisable',
         content:
-          "Velocity implémente un système de design complet utilisant la nouvelle configuration CSS-first de Tailwind v4. Pas de fichiers de configuration JavaScript désordonnés.",
+          'La base MuBrain s’appuie sur des fichiers Markdown enrichis par du frontmatter YAML afin de rester lisible dans GitHub et exploitable par des agents IA.',
       },
       seo: {
-        label: 'SEO et Meta',
-        desc: 'OpenGraph et sitemaps',
-        title: 'Gestion SEO Automatisée',
+        label: 'Publication',
+        desc: 'Astro, SEO et contenu public',
+        title: 'Une publication sobre et durable',
         content:
-          "Les collections de contenu d'Astro alimentent l'injection de métadonnées typées pour chaque page. Les images de partage sont générées automatiquement.",
+          'Astro permet de publier un site statique rapide tout en gardant une séparation claire entre les articles publics et la base de connaissance de référence.',
       },
       perf: {
-        label: 'Performance',
-        desc: '100/100 Core Web Vitals',
-        title: 'Zéro JS par Défaut',
+        label: 'Maintenabilité',
+        desc: 'Git, branches et validation',
+        title: 'Des changements versionnés et vérifiables',
         content:
-          "Nous utilisons l'architecture en îles d'Astro pour garantir que vos pages marketing n'envoient 0kb de JavaScript au client sauf si explicitement interactif.",
+          'Chaque évolution importante peut être travaillée dans une branche Git, validée par un build, puis fusionnée proprement vers la branche stable.',
       },
       components: {
         label: 'Composants',
-        desc: 'Primitives UI réutilisables',
-        title: 'Composants Type-Safe',
+        desc: 'Interface réutilisable',
+        title: 'Des composants au service du contenu',
         content:
-          "Construisez avec confiance en utilisant des composants TypeScript-first. Validation complète des props et autocomplétion de l'IDE incluses.",
+          'Les composants visuels servent à présenter clairement les idées, mais la priorité de MuBrain reste la structure de la connaissance et la qualité éditoriale.',
       },
       i18n: {
-        label: 'Internationalisation',
-        desc: 'Support multilingue',
-        title: 'Internationalisation Intégrée',
+        label: 'Bilinguisme',
+        desc: 'fr-CA source, en-CA traduction',
+        title: 'Le français canadien comme source de vérité',
         content:
-          "Support de première classe pour les sites multilingues avec des traductions type-safe, détection automatique de la langue et structures d'URL optimisées pour le SEO.",
+          'Les contenus de référence sont d’abord produits en français canadien. Les versions anglaises peuvent être assistées par IA, mais doivent être validées humainement.',
       },
     },
   },
 
   // Credibility Section
   credibility: {
-    badge: 'Testé en Production',
-    title: 'Créé par Southwell Media. Né de la',
-    titleHighlight: 'pression des délais',
+    badge: 'Méthode documentée',
+    title: 'Une structure pensée pour durer,',
+    titleHighlight: 'pas seulement pour publier',
     paragraph1:
-      "Nous sommes une agence digitale qui livre des sites marketing haute performance. Nous en avions assez de passer les 3 premiers jours de chaque projet à configurer les mêmes outils, configs SEO et définitions de types.",
+      'MuBrain part du constat qu’un site web ne suffit plus. Les idées, les méthodes et les décisions doivent être conservées dans une structure exploitable à long terme.',
     paragraph2:
-      "Velocity n'est pas un exercice théorique. C'est exactement le code que nous utilisons pour livrer des projets clients en 14-21 jours au lieu des 60 jours standard de l'industrie.",
+      'Le projet combine Astro, GitHub, une base OKF / LLM-WIKI et des conventions de rédaction pour créer un socle documentaire utilisable par des humains et des agents IA.',
     stats: {
       lighthouse: {
-        score: 'Parfait',
-        label: 'Scores Lighthouse',
+        score: 'Structuré',
+        label: 'Connaissance versionnée',
       },
       delivery: {
-        days: '14 Jours',
-        label: 'Temps de Livraison Moyen',
+        days: 'GitHub',
+        label: 'Historique des décisions',
       },
     },
     standard: {
-      title: 'Le Standard Velocity',
+      title: 'Les principes MuBrain',
       items: [
-        'Aucun CSS inutilisé en production',
-        'Images optimisées au build',
-        'Content Collections typées',
-        'Primitives accessibles préconfigurées',
+        'Français canadien comme source de vérité',
+        'Markdown et YAML pour la connaissance de référence',
+        'Séparation entre site public et base OKF',
+        'Validation humaine des traductions anglaises',
       ],
     },
     testimonial: {
-      quote: '"Le boilerplate le plus propre que j\'ai vu en 2024. Il élimine le superflu."',
-      author: '— Alex C., Senior Frontend Dev',
+      quote:
+        '"Une base de connaissance utile doit pouvoir être lue, comprise, versionnée et réutilisée."',
+      author: '— Principe MuBrain',
     },
   },
 
   // CTA Section
   cta: {
-    title: 'Arrêtez de configurer.',
-    titleHighlight: 'Commencez à livrer.',
+    title: 'Lire, structurer,',
+    titleHighlight: 'réutiliser.',
     description:
-      "Rejoignez les développeurs qui construisent des sites web plus rapides et meilleurs avec Velocity. Open source et gratuit pour toujours.",
-    docs: 'Lire la Documentation',
-    command: 'npm create velocity@latest',
+      'MuBrain documente une manière de publier et de maintenir la connaissance pour qu’elle reste utile aux humains, aux organisations et aux agents IA.',
+    docs: 'Explorer le blog',
+    command: 'git clone https://github.com/MuBrain/mubrain.github.io',
   },
 
   // Footer
   footer: {
-    copyright: '© {year} Velocity. Tous droits réservés.',
-    madeWith: 'Fait avec',
+    copyright: '© {year} MuBrain. Tous droits réservés.',
+    madeWith: 'Construit avec',
     maintainedBy: 'Maintenu par',
     links: {
-      documentation: 'Documentation',
+      documentation: 'Blog',
       github: 'GitHub',
-      twitter: 'Twitter',
+      blog: 'Blog',
+      contact: 'Contact',
       license: 'Licence',
     },
   },
 
   // Home page
   home: {
-    title: 'Bienvenue sur Velocity',
-    subtitle: "Le starter Astro opinioné que vous voulez vraiment utiliser",
-    cta: 'Commencer',
+    title: 'Bienvenue sur MuBrain',
+    subtitle:
+      'Une base de connaissance et un site pour explorer l’intelligence artificielle, les agents et la structuration du savoir.',
+    cta: 'Lire',
   },
 
   // About page
   about: {
     meta: {
-      title: 'À Propos',
-      description: 'Découvrez Velocity et l\'équipe derrière le projet.',
+      title: 'À propos',
+      description:
+        'Découvrez MuBrain, sa base de connaissance structurée et son approche centrée sur les humains, les agents IA et les organisations apprenantes.',
     },
     hero: {
-      badge: 'Notre Histoire',
-      title: 'Créé par des développeurs,',
-      titleHighlight: 'pour des développeurs.',
-      description: 'Velocity est né de la frustration de configurer les mêmes outils encore et encore. Nous avons décidé de créer le starter que nous avions toujours voulu.',
+      badge: 'À propos',
+      title: 'Documenter la connaissance,',
+      titleHighlight: 'pas seulement la publier.',
+      description:
+        'MuBrain est un espace de réflexion, de documentation et d’expérimentation autour de l’intelligence artificielle, des agents, du doc-as-code et des bases de connaissance.',
     },
     mission: {
-      title: 'Notre Mission',
-      description: 'Aider les développeurs à créer des sites web beaux et performants plus rapidement en éliminant le code répétitif et en fournissant des valeurs par défaut sensées.',
+      title: 'Mission',
+      description:
+        'Aider à structurer la connaissance de façon durable, lisible par les humains, maintenable dans GitHub et réutilisable par des agents IA.',
     },
     values: {
-      title: 'Ce Que Nous Croyons',
+      title: 'Principes',
       performance: {
-        title: 'Performance Avant Tout',
-        description: 'Chaque décision est prise en pensant à la performance. Zéro JavaScript par défaut, images optimisées et CSS minimal.',
+        title: 'Clarté avant complexité',
+        description:
+          'Chaque contenu doit être compréhensible sans dépendre d’un contexte implicite ou d’une personne qui seule saurait l’expliquer.',
       },
       simplicity: {
-        title: 'La Simplicité Compte',
-        description: 'Nous éliminons la complexité pour que vous puissiez vous concentrer sur ce qui compte : créer d\'excellents produits pour vos utilisateurs.',
+        title: 'Structure avant décoration',
+        description:
+          'MuBrain privilégie les conventions simples, les fichiers lisibles et les décisions explicites plutôt que les effets visuels inutiles.',
       },
       openSource: {
-        title: 'Open Source',
-        description: 'Velocity est gratuit et open source. Nous croyons qu\'il faut rendre à la communauté ce qui a rendu cela possible.',
+        title: 'Traçabilité',
+        description:
+          'GitHub permet de conserver l’historique du site, des contenus, des décisions et de la base de connaissance.',
       },
     },
   },
@@ -211,43 +221,46 @@ export const fr: TranslationKeys = {
   // Contact page
   contact: {
     meta: {
-      title: 'Contactez-nous',
-      description: 'Prenez contact avec l\'équipe Velocity.',
+      title: 'Contact',
+      description:
+        'Contacter MuBrain ou suivre le projet à travers le dépôt GitHub et les publications publiques.',
     },
     hero: {
-      badge: 'Prenez Contact',
-      title: 'Restons en',
-      titleHighlight: 'contact.',
-      description: 'Une question, une suggestion ou juste envie de dire bonjour ? Nous serions ravis de vous entendre.',
+      badge: 'Contact',
+      title: 'Échanger autour',
+      titleHighlight: 'de MuBrain.',
+      description:
+        'MuBrain est en construction progressive. Le point d’entrée le plus stable reste le dépôt GitHub et les publications associées au projet.',
     },
     form: {
-      title: 'Envoyez-nous un message',
-      name: 'Votre Nom',
-      namePlaceholder: 'Jean Dupont',
-      email: 'Adresse E-mail',
-      emailPlaceholder: 'jean@exemple.fr',
+      title: 'Envoyer un message',
+      name: 'Nom',
+      namePlaceholder: 'Votre nom',
+      email: 'Adresse courriel',
+      emailPlaceholder: 'vous@exemple.ca',
       subject: 'Sujet',
-      subjectPlaceholder: 'Comment pouvons-nous vous aider ?',
+      subjectPlaceholder: 'Sujet de votre message',
       message: 'Message',
-      messagePlaceholder: 'Dites-nous en plus sur votre projet ou question...',
-      submit: 'Envoyer le Message',
+      messagePlaceholder:
+        'Expliquez brièvement votre question, votre idée ou le contexte de votre demande.',
+      submit: 'Envoyer le message',
       sending: 'Envoi en cours...',
-      success: 'Message envoyé avec succès ! Nous vous répondrons bientôt.',
-      error: 'Échec de l\'envoi du message. Veuillez réessayer plus tard.',
+      success: 'Message envoyé avec succès.',
+      error: 'Échec de l’envoi du message. Veuillez réessayer plus tard.',
     },
     info: {
-      title: 'Autres moyens de nous contacter',
+      title: 'Autres points d’entrée',
       email: {
-        label: 'E-mail',
-        value: 'bonjour@velocity.dev',
+        label: 'Courriel',
+        value: 'À préciser',
       },
       github: {
         label: 'GitHub',
-        value: 'github.com/velocity',
+        value: 'github.com/MuBrain/mubrain.github.io',
       },
       twitter: {
-        label: 'Twitter',
-        value: '@velocity_dev',
+        label: 'Réseaux sociaux',
+        value: 'À préciser',
       },
     },
   },
@@ -255,65 +268,69 @@ export const fr: TranslationKeys = {
   // Forms
   form: {
     name: 'Nom',
-    email: 'E-mail',
+    email: 'Courriel',
     message: 'Message',
     submit: 'Envoyer',
     sending: 'Envoi en cours...',
     success: 'Message envoyé avec succès !',
-    error: "Échec de l'envoi du message. Veuillez réessayer.",
+    error: 'Échec de l’envoi du message. Veuillez réessayer.',
   },
 
   // Blog
   blog: {
     title: 'Blog',
-    description: 'Derniers articles et mises à jour',
+    description: 'Articles, réflexions et mises à jour autour de MuBrain',
     allPosts: 'Tous les articles',
     featured: 'À la une',
     noPosts: 'Aucun article trouvé',
     relatedPosts: 'Articles connexes',
-    backToBlog: 'Retour au Blog',
-    subscribe: "S'abonner",
-    subscribeDescription: 'Recevez les derniers articles et mises à jour dans votre boîte mail.',
-    emailPlaceholder: 'Entrez votre e-mail',
-    subscribeButton: "S'abonner",
+    backToBlog: 'Retour au blog',
+    subscribe: "S’abonner",
+    subscribeDescription:
+      'Recevez les prochains articles et mises à jour de MuBrain.',
+    emailPlaceholder: 'Entrez votre courriel',
+    subscribeButton: "S’abonner",
   },
 
   // Components Page
   components: {
     meta: {
       title: 'Composants',
-      description: "Explorez la bibliothèque complète de composants UI de Velocity. Prêts pour la production, accessibles et magnifiquement conçus.",
+      description:
+        'Référence interne des composants visuels utilisés par MuBrain pour construire une interface claire, accessible et maintenable.',
     },
     hero: {
-      badge: 'Composants de Production',
+      badge: 'Composants internes',
       title: 'Bibliothèque de',
-      titleHighlight: 'Composants',
-      description: "Primitives UI prêtes pour la production, construites avec l'accessibilité et la performance en tête. Copiez, collez et personnalisez pour votre marque.",
-      browseComponents: 'Parcourir les Composants',
-      viewSource: 'Voir le Code',
+      titleHighlight: 'composants',
+      description:
+        'Les composants servent à construire les pages MuBrain de manière cohérente. Ils ne sont pas l’objet principal du site, mais soutiennent la lisibilité du contenu.',
+      browseComponents: 'Explorer les composants',
+      viewSource: 'Voir le code',
     },
     categories: {
       buttons: 'Boutons',
-      inputs: 'Champs de Formulaire',
-      feedback: 'Retour Utilisateur',
+      inputs: 'Champs de formulaire',
+      feedback: 'Retour utilisateur',
       overlays: 'Superpositions',
-      data: 'Affichage de Données',
+      data: 'Affichage de données',
       loading: 'Chargement',
     },
     sections: {
       buttons: {
         title: 'Boutons',
-        description: "Éléments interactifs pour les actions et la navigation. Toutes les variantes supportent les icônes, les états de chargement et l'accessibilité complète.",
+        description:
+          'Éléments interactifs utilisés pour guider la navigation, les actions principales et les liens importants.',
         variants: 'Variantes',
-        variantsHint: '6 styles pour différents contextes',
+        variantsHint: 'Styles adaptés à différents contextes',
         sizes: 'Tailles',
-        sizesHint: 'Mise à échelle responsive',
+        sizesHint: 'Mise à l’échelle selon le contexte',
         states: 'États',
-        withIcons: 'Avec Icônes',
+        withIcons: 'Avec icônes',
         primary: 'Primaire',
         secondary: 'Secondaire',
         outline: 'Contour',
-        ghost: 'Fantôme',
+        ghost: 'Discret',
         link: 'Lien',
         destructive: 'Destructif',
         small: 'Petit',
@@ -327,20 +344,21 @@ export const fr: TranslationKeys = {
         star: 'Favori',
       },
       inputs: {
-        title: 'Champs de Formulaire',
-        description: 'Champs de texte, sélecteurs, cases à cocher et plus. Construits avec validation native et support ARIA.',
-        textInput: 'Champ de Texte',
-        textInputHint: 'Avec labels et validation',
-        textarea: 'Zone de Texte',
+        title: 'Champs de formulaire',
+        description:
+          'Champs de texte, zones de saisie, sélecteurs et contrôles utilisés pour les interactions de base.',
+        textInput: 'Champ de texte',
+        textInputHint: 'Avec libellé et aide contextuelle',
+        textarea: 'Zone de texte',
         textareaHint: 'Saisie de texte multiligne',
         select: 'Sélecteur',
         selectHint: 'Liste déroulante native',
-        checkboxes: 'Cases à Cocher',
+        checkboxes: 'Cases à cocher',
         checkboxesHint: 'Contrôles de sélection multiple',
-        planSelection: 'Sélection de Plan',
-        planSelectionHint: 'Options style carte',
-        emailLabel: 'Adresse e-mail',
-        emailPlaceholder: 'vous@exemple.com',
+        planSelection: 'Sélection d’option',
+        planSelectionHint: 'Présentation sous forme de carte',
+        emailLabel: 'Adresse courriel',
+        emailPlaceholder: 'vous@exemple.ca',
         passwordLabel: 'Mot de passe',
         passwordPlaceholder: '••••••••',
         passwordHint: 'Minimum 8 caractères',
@@ -348,25 +366,27 @@ export const fr: TranslationKeys = {
         disabledPlaceholder: 'Non modifiable',
         messageLabel: 'Message',
         messagePlaceholder: 'Écrivez votre message ici...',
-        messageHint: 'Supporte le formatage markdown',
+        messageHint: 'Supporte le texte structuré',
         countryLabel: 'Pays',
         selectCountry: 'Sélectionnez un pays...',
-        termsLabel: "J'accepte les conditions d'utilisation",
-        updatesLabel: "M'envoyer les mises à jour produit",
+        termsLabel: 'J’accepte les conditions d’utilisation',
+        updatesLabel: 'M’envoyer les mises à jour',
         notificationsLabel: 'Activer les notifications',
-        notificationsDesc: 'Recevoir des alertes pour les mises à jour importantes',
-        planFree: 'Gratuit',
-        planFreeDesc: 'Fonctionnalités de base pour projets personnels',
-        planPro: 'Pro',
-        planProDesc: 'Outils avancés pour professionnels',
+        notificationsDesc:
+          'Recevoir des alertes pour les mises à jour importantes',
+        planFree: 'Base',
+        planFreeDesc: 'Fonctionnalités de base pour explorer le projet',
+        planPro: 'Avancé',
+        planProDesc: 'Fonctions avancées pour structurer et publier',
         planTeam: 'Équipe',
-        planTeamDesc: "Fonctionnalités de collaboration pour les équipes",
+        planTeamDesc: 'Fonctions de collaboration pour les équipes',
       },
       feedback: {
-        title: 'Retour Utilisateur',
-        description: "Badges, alertes et indicateurs d'état pour communiquer l'état et guider les actions utilisateur.",
+        title: 'Retour utilisateur',
+        description:
+          'Badges, alertes et indicateurs d’état pour communiquer clairement les informations importantes.',
         badges: 'Badges',
-        badgesHint: "Indicateurs d'état",
+        badgesHint: 'Indicateurs d’état',
         alerts: 'Alertes',
         alertsHint: 'Messages contextuels',
         default: 'Par défaut',
@@ -375,35 +395,39 @@ export const fr: TranslationKeys = {
         error: 'Erreur',
         info: 'Info',
         tipTitle: 'Astuce',
-        tipContent: 'Utilisez les raccourcis clavier pour naviguer plus vite. Appuyez sur',
+        tipContent:
+          'Utilisez les raccourcis clavier pour naviguer plus rapidement. Appuyez sur',
         tipKey: '⌘K',
         tipEnd: 'pour ouvrir la palette de commandes.',
         deployTitle: 'Déploiement réussi',
         deployContent: 'Vos modifications sont en ligne sur',
         limitTitle: 'Limite approchant',
-        limitContent: "Vous avez utilisé 80% de votre quota API mensuel. Envisagez de passer à un plan supérieur.",
+        limitContent:
+          'Vous avez utilisé une grande partie de votre quota. Envisagez d’ajuster votre configuration.',
         buildTitle: 'Build échoué',
         buildContent: 'Erreur dans',
-        buildError: '— prop requise "variant" manquante',
+        buildError: '— propriété requise manquante',
       },
       overlays: {
         title: 'Superpositions',
-        description: 'Dialogues, menus déroulants, tooltips et onglets. Navigation clavier complète et gestion du focus.',
+        description:
+          'Dialogues, menus déroulants, infobulles et onglets pour organiser l’information et les actions secondaires.',
         dialog: 'Dialogue',
         dialogHint: 'Superposition modale',
         dropdown: 'Menu',
-        dropdownHint: "Menu d'actions",
-        tooltips: 'Tooltips',
+        dropdownHint: 'Menu d’actions',
+        tooltips: 'Infobulles',
         tooltipsHint: 'Indices contextuels',
         tabs: 'Onglets',
         tabsHint: 'Organisation du contenu',
-        openDialog: 'Ouvrir le Dialogue',
-        deleteTitle: 'Supprimer le projet ?',
+        openDialog: 'Ouvrir le dialogue',
+        deleteTitle: 'Supprimer l’élément ?',
         deleteDesc: 'Cette action ne peut pas être annulée.',
         deleteConfirm: 'Êtes-vous sûr de vouloir supprimer',
-        deleteWarning: 'Tous les fichiers, déploiements et données analytiques seront définitivement supprimés.',
+        deleteWarning:
+          'Les fichiers, déploiements et données associés seront définitivement supprimés.',
         cancel: 'Annuler',
-        deleteProject: 'Supprimer le Projet',
+        deleteProject: 'Supprimer le projet',
         actions: 'Actions',
         edit: 'Modifier',
         duplicate: 'Dupliquer',
@@ -414,71 +438,81 @@ export const fr: TranslationKeys = {
         bottom: 'Bas',
         left: 'Gauche',
         right: 'Droite',
-        tooltipTop: 'Tooltip en haut',
-        tooltipBottom: 'Tooltip en bas',
-        tooltipLeft: 'Tooltip à gauche',
-        tooltipRight: 'Tooltip à droite',
+        tooltipTop: 'Infobulle en haut',
+        tooltipBottom: 'Infobulle en bas',
+        tooltipLeft: 'Infobulle à gauche',
+        tooltipRight: 'Infobulle à droite',
         overview: 'Aperçu',
-        analytics: 'Analytiques',
+        analytics: 'Analyse',
         settings: 'Paramètres',
-        overviewContent: "Aperçu du projet avec métriques clés et activité récente. Les onglets supportent la navigation clavier complète.",
-        analyticsContent: "Données analytiques avec graphiques et informations de performance. Utilisez les flèches pour naviguer entre les onglets.",
-        settingsContent: 'Configurez les paramètres de votre projet. Utilisez Début/Fin pour aller au premier/dernier onglet.',
+        overviewContent:
+          'Aperçu avec informations clés et activité récente. Les onglets prennent en charge la navigation au clavier.',
+        analyticsContent:
+          'Données d’analyse avec indicateurs et informations de performance.',
+        settingsContent:
+          'Configurez les paramètres du projet. Utilisez Début et Fin pour naviguer rapidement entre les onglets.',
       },
       data: {
-        title: 'Affichage de Données',
-        description: "Cartes, avatars et icônes pour présenter le contenu et les informations utilisateur.",
+        title: 'Affichage de données',
+        description:
+          'Cartes, avatars et icônes pour présenter clairement les contenus, les indicateurs et les informations utiles.',
         cards: 'Cartes',
         cardsHint: 'Conteneurs de contenu',
         avatars: 'Avatars',
-        avatarsHint: "Représentations d'utilisateurs",
+        avatarsHint: 'Représentations d’utilisateurs',
         icons: 'Icônes',
-        iconsHint: 'Set Lucide — 24 incluses',
+        iconsHint: 'Jeu d’icônes utilisé dans l’interface',
         stacked: 'Empilés',
         performance: 'Performance',
-        performanceScore: '100/100 Lighthouse',
-        performanceDesc: "Zéro JavaScript par défaut. Architecture en îles avec hydratation sélective pour une vitesse optimale.",
-        typeSafe: 'Type-Safe',
-        typeSafeScore: 'TypeScript Complet',
-        typeSafeDesc: "Types stricts avec autocomplétion IDE et vérification d'erreurs à la compilation.",
-        i18nReady: 'i18n Prêt',
-        i18nScore: 'Multilingue',
-        i18nDesc: 'Système de traduction intégré avec URLs SEO-friendly et détection automatique de la langue.',
+        performanceScore: 'Site statique',
+        performanceDesc:
+          'Astro permet de publier un site rapide, léger et facile à déployer sur GitHub Pages.',
+        typeSafe: 'Typé',
+        typeSafeScore: 'TypeScript',
+        typeSafeDesc:
+          'Le typage aide à limiter les erreurs et à rendre les composants plus maintenables.',
+        i18nReady: 'Bilingue',
+        i18nScore: 'fr-CA / en-CA',
+        i18nDesc:
+          'Le français canadien est la source de vérité, l’anglais canadien est une traduction validée.',
       },
       loading: {
         title: 'Chargement',
-        description: 'Squelettes de chargement pour une performance perçue pendant le chargement du contenu.',
-        skeletonTypes: 'Types de Squelettes',
-        skeletonTypesHint: 'Texte, circulaire, rectangulaire',
-        cardSkeleton: 'Squelette de Carte',
+        description:
+          'États de chargement pour améliorer la perception de fluidité lors de l’affichage du contenu.',
+        skeletonTypes: 'Types de squelettes',
+        skeletonTypesHint: 'Texte, cercle, rectangle',
+        cardSkeleton: 'Squelette de carte',
         cardSkeletonHint: 'État de chargement composé',
       },
     },
     cta: {
-      title: 'Prêt à construire ?',
-      description: "Ces composants ne sont que le début. Clonez Velocity et commencez à livrer plus vite.",
-      cloneRepo: 'Cloner le Dépôt',
-      readDocs: 'Lire la Documentation',
+      title: 'Construire une interface claire',
+      description:
+        'Les composants servent à soutenir la lisibilité du contenu MuBrain et à conserver une expérience cohérente.',
+      cloneRepo: 'Ouvrir le dépôt',
+      readDocs: 'Lire la documentation',
     },
   },
 
   // Consent Banner
   consent: {
-    heading: 'Préférences de Cookies',
-    description: 'Nous utilisons des cookies pour améliorer votre expérience de navigation, proposer du contenu personnalisé et analyser notre trafic.',
-    acceptAll: 'Tout Accepter',
-    declineAll: 'Tout Refuser',
+    heading: 'Préférences de confidentialité',
+    description:
+      'Nous utilisons certains paramètres pour améliorer l’expérience de navigation et comprendre l’usage du site lorsque ces options sont activées.',
+    acceptAll: 'Tout accepter',
+    declineAll: 'Tout refuser',
     customize: 'Personnaliser',
-    savePreferences: 'Enregistrer les Préférences',
-    settingsHeading: 'Paramètres de Confidentialité',
-    privacyPolicyLabel: 'Politique de Confidentialité',
+    savePreferences: 'Enregistrer les préférences',
+    settingsHeading: 'Paramètres de confidentialité',
+    privacyPolicyLabel: 'Politique de confidentialité',
     alwaysOn: 'Toujours actif',
   },
 
   // Faq page
   faq: {
-    title: 'Faq',
-    description: 'Add your faq page description here.',
+    title: 'FAQ',
+    description:
+      'Questions fréquentes sur MuBrain, sa base OKF, son approche bilingue et son usage avec des agents IA.',
   },
-
 } as const;

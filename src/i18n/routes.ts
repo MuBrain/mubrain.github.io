@@ -50,10 +50,9 @@ export const routes = {
     fr: '', en: '',
     nav: { show: false, order: 0, label: 'nav.home' },
   },
-
   // Static pages
   about: {
-    fr: 'a-propos', en: 'about',
+    fr: 'about', en: 'about',
     nav: { show: true, order: 3, label: 'nav.about' },
   },
   contact: {
@@ -63,7 +62,7 @@ export const routes = {
 
   // Blog section
   blog: {
-    fr: 'blogue', en: 'blog',
+    fr: 'blog', en: 'blog',
     nav: { show: true, order: 2, label: 'nav.blog' },
   },
 

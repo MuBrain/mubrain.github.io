@@ -45,7 +45,7 @@ const nonFeaturedPosts = posts.filter((post) => !post.data.featured);
 const regularPosts = nonFeaturedPosts.length > 0 ? nonFeaturedPosts : posts;
 
 const getPostUrl = (postId: string) => {
-  // Remove locale prefix from id (e.g., "es/bienvenido-a-velocity" -> "bienvenido-a-velocity")
+  // Remove locale prefix from id when needed
   const slug = postId.replace(`${locale}/`, '');
   return `/${locale}/blog/${slug}`;
 };
