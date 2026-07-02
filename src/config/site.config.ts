@@ -49,23 +49,22 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  name: 'Velocity',
-  description: 'A modern website built with Astro and Tailwind CSS',
-  url: SITE_URL || 'https://example.com',
+  name: 'MuBrain',
+  description: 'MuBrain est un espace de réflexion, de publication et de structuration de la connaissance autour de l’intelligence artificielle, des agents et des organisations apprenantes.',
+  url: SITE_URL || 'https://mubrain.github.io',
   ogImage: '/og-default.png',
-  author: 'Southwell Media',
-  // Demo contact info - replace with your actual business details
-  email: 'hello@example.com',
-  phone: '+1 (555) 123-4567',
+  author: 'MuBrain',
+  email: 'contact@mubrain.com',
+  phone: '',
   address: {
-    street: '123 Main St',
-    city: 'Dallas',
-    state: 'TX',
-    zip: '75001',
-    country: 'US',
+    street: '',
+    city: 'Montréal',
+    state: 'QC',
+    zip: 'H2L 2X1',
+    country: 'CA',
   },
   socialLinks: [
-    'https://github.com/southwellmedia',
+    'https://github.com/MuBrain',
   ],
   // Twitter metadata - update with your actual handles or remove
   // twitter: {
@@ -80,7 +79,7 @@ const siteConfig: SiteConfig = {
   // Replace the SVG files there with your own branding
   branding: {
     logo: {
-      alt: 'Velocity',
+      alt: 'MuBrain',
     },
     favicon: {
       svg: '/favicon.svg',

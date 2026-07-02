@@ -4,8 +4,8 @@
 export const en = {
   // Site
   site: {
-    name: 'Velocity',
-    description: 'A modern Astro starter template',
+    name: 'MuBrain',
+    description: 'A knowledge-oriented website about AI, agents, collective intelligence, and learning organizations.',
   },
 
   // Navigation
@@ -34,14 +34,14 @@ export const en = {
 
   // Hero Section
   hero: {
-    badge: 'v1.0 Public Beta is Live',
-    title: 'Your next site',
-    titleHighlight: 'starts here.',
+    badge: 'MuBrain is being rebuilt',
+    title: 'Knowledge that humans',
+    titleHighlight: 'and agents can use.',
     description:
-      'Clone the repo. Customize the tokens. Deploy by Friday. Velocity handles the tedious parts so you can focus on the work that matters.',
-    cta: 'Get Started',
+      'MuBrain explores artificial intelligence, agentic systems, collective intelligence, and the way organizations structure knowledge for the age of AI.',
+    cta: 'Explore the site',
     github: 'View on GitHub',
-    socialProof: 'Used by 40+ agencies in production',
+    socialProof: 'Built with Astro, GitHub Pages, and an OKF-inspired knowledge model',
   },
 
   // Tech Stack Section
@@ -155,7 +155,7 @@ export const en = {
 
   // Footer
   footer: {
-    copyright: '© {year} Velocity. All rights reserved.',
+    copyright: '© {year} MuBrain. All rights reserved.',
     madeWith: 'Made with',
     maintainedBy: 'Maintained by',
     links: {
@@ -168,9 +168,9 @@ export const en = {
 
   // Home page
   home: {
-    title: 'Welcome to Velocity',
-    subtitle: 'The opinionated Astro starter you actually want to use',
-    cta: 'Get Started',
+    title: 'Welcome to MuBrain',
+    subtitle: 'A knowledge-oriented website for humans, organizations, and AI agents',
+    cta: 'Explore',
   },
 
   // About page
