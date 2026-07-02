@@ -1,25 +1,75 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+
+const title = 'À propos de MuBrain';
+const description =
+  'MuBrain est un espace de réflexion et de documentation sur la connaissance structurée, l’intelligence artificielle, les agents et les organisations apprenantes.';
 ---
 
-<PageLayout
-  title="About"
-  description="Add your description here"
->
-  <!-- Hero Section -->
-  <section class="py-20 bg-secondary">
+<PageLayout title={title} description={description} routeId="about">
+  <section class="border-b border-border bg-secondary py-20">
     <div class="container">
-      <h1 class="text-4xl font-bold text-foreground">About</h1>
-      <p class="mt-4 text-foreground-muted max-w-2xl">
-        Add your content here.
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">
+        À propos
+      </p>
+
+      <h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        MuBrain documente la manière dont la connaissance peut rester utile aux humains et aux agents IA.
+      </h1>
+
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-foreground-muted">
+        Le projet part d’une conviction simple : la connaissance ne doit pas seulement être publiée.
+        Elle doit être structurée, versionnée, contextualisée et réutilisable.
       </p>
     </div>
   </section>
 
-  <!-- Content Section -->
   <section class="py-16">
-    <div class="container">
-      <!-- Your content -->
+    <div class="container grid gap-8 lg:grid-cols-3">
+      <article class="rounded-2xl border border-border bg-background-subtle p-8">
+        <h2 class="text-2xl font-semibold text-foreground">Un blog</h2>
+        <p class="mt-4 text-foreground-muted">
+          MuBrain publie des articles sur l’intelligence artificielle, les agents, le doc-as-code,
+          la gestion de la connaissance et les transformations numériques.
+        </p>
+      </article>
+
+      <article class="rounded-2xl border border-border bg-background-subtle p-8">
+        <h2 class="text-2xl font-semibold text-foreground">Une base OKF</h2>
+        <p class="mt-4 text-foreground-muted">
+          Derrière le site public, une base de connaissance structurée conserve les concepts,
+          méthodes, projets et décisions dans un format lisible par les humains et les machines.
+        </p>
+      </article>
+
+      <article class="rounded-2xl border border-border bg-background-subtle p-8">
+        <h2 class="text-2xl font-semibold text-foreground">Un laboratoire</h2>
+        <p class="mt-4 text-foreground-muted">
+          MuBrain sert aussi à expérimenter des façons de travailler avec ChatGPT, Copilot,
+          Codex et d’autres agents sans perdre la maîtrise humaine du sens.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-t border-border py-16">
+    <div class="container max-w-3xl">
+      <h2 class="text-3xl font-bold tracking-tight text-foreground">
+        Le français canadien comme source de vérité.
+      </h2>
+
+      <p class="mt-6 text-lg leading-8 text-foreground-muted">
+        Les contenus de référence sont produits en français canadien. Les versions anglaises
+        peuvent être générées ou assistées par IA, mais elles doivent être validées humainement
+        avant de devenir des traductions officielles.
+      </p>
+
+      <div class="mt-8">
+        <Button href="/blog/mubrain-foundation/">
+          Lire l’article de fondation
+        </Button>
+      </div>
     </div>
   </section>
 </PageLayout>

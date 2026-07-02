@@ -1,7 +1,7 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
 import { locales, isValidLocale, defaultLocale, type Locale } from '@/i18n/config';
-import { useTranslations } from '@/i18n/index';
 import { routes } from '@/i18n/routes';
 
 export function getStaticPaths() {
@@ -22,31 +22,64 @@ if (!lang || !isValidLocale(lang)) {
 }
 
 const locale = lang as Locale;
-const t = useTranslations(locale);
+
+const title = 'Contact';
+const description =
+  'Contact MuBrain or follow the project through the GitHub repository and public publications.';
 ---
 
-<PageLayout
-  title={t('contact.title') || 'Contact'}
-  description={t('contact.description') || 'Add your description here'}
-  lang={locale}
-  routeId="contact"
->
-  <!-- Hero Section -->
-  <section class="py-20 bg-secondary">
+<PageLayout title={title} description={description} lang={locale} routeId="contact">
+  <section class="border-b border-border bg-secondary py-20">
     <div class="container">
-      <h1 class="text-4xl font-bold text-foreground">
-        {t('contact.title') || 'Contact'}
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">
+        Contact
+      </p>
+
+      <h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        Start a conversation around MuBrain.
       </h1>
-      <p class="mt-4 text-foreground-muted max-w-2xl">
-        {t('contact.description') || 'Add your content here.'}
+
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-foreground-muted">
+        MuBrain is being built progressively. For now, the most stable entry point is the
+        GitHub repository and the public publications associated with the project.
       </p>
     </div>
   </section>
 
-  <!-- Content Section -->
   <section class="py-16">
-    <div class="container">
-      <!-- Your content -->
+    <div class="container grid gap-8 lg:grid-cols-2">
+      <article class="rounded-2xl border border-border bg-background-subtle p-8">
+        <h2 class="text-2xl font-semibold text-foreground">
+          Follow the repository
+        </h2>
+
+        <p class="mt-4 text-foreground-muted">
+          The GitHub repository preserves the site, the OKF base, the writing conventions,
+          and the history of technical decisions.
+        </p>
+
+        <div class="mt-6">
+          <Button href="https://github.com/MuBrain/mubrain.github.io" target="_blank">
+            Open the GitHub repository
+          </Button>
+        </div>
+      </article>
+
+      <article class="rounded-2xl border border-border bg-background-subtle p-8">
+        <h2 class="text-2xl font-semibold text-foreground">
+          Suggest a discussion
+        </h2>
+
+        <p class="mt-4 text-foreground-muted">
+          The most relevant topics include AI, agents, doc-as-code, knowledge structure,
+          Copilot adoption, and learning organizations.
+        </p>
+
+        <p class="mt-4 text-foreground-muted">
+          A more complete contact page can be added later once the public form and official
+          channels are stabilized.
+        </p>
+      </article>
     </div>
   </section>
 </PageLayout>

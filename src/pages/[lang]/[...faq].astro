@@ -1,7 +1,6 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
 import { locales, isValidLocale, defaultLocale, type Locale } from '@/i18n/config';
-import { useTranslations } from '@/i18n/index';
 import { routes } from '@/i18n/routes';
 
 export function getStaticPaths() {
@@ -22,31 +21,71 @@ if (!lang || !isValidLocale(lang)) {
 }
 
 const locale = lang as Locale;
-const t = useTranslations(locale);
+
+const title = 'FAQ';
+const description =
+  'Frequently asked questions about MuBrain, its OKF structure, bilingual approach, and use with AI agents.';
+
+const faqs = [
+  {
+    question: 'What is MuBrain?',
+    answer:
+      'MuBrain is a site and knowledge base focused on artificial intelligence, agents, doc-as-code, knowledge management, and learning organizations.',
+  },
+  {
+    question: 'Why use an OKF / LLM-WIKI base?',
+    answer:
+      'Because a public website is not enough. The OKF base preserves concepts, methods, projects, and decisions in structured Markdown files with YAML so they remain readable by humans and usable by AI agents.',
+  },
+  {
+    question: 'Which language is the source of truth?',
+    answer:
+      'French Canadian is the source of truth. English versions are human-validated translations.',
+  },
+  {
+    question: 'Are all OKF files published on the site?',
+    answer:
+      'No. OKF files live in the knowledge/okf folder and serve as a reference base. Some of them may inspire public articles, but they are not automatically published.',
+  },
+  {
+    question: 'Why GitHub and Astro?',
+    answer:
+      'GitHub makes it possible to version decisions and content. Astro makes it possible to publish a fast static site that can be deployed easily with GitHub Pages.',
+  },
+];
 ---
 
-<PageLayout
-  title={t('faq.title') || 'Faq'}
-  description={t('faq.description') || 'Add your description here'}
-  lang={locale}
-  routeId="faq"
->
-  <!-- Hero Section -->
-  <section class="py-20 bg-secondary">
+<PageLayout title={title} description={description} lang={locale} routeId="faq">
+  <section class="border-b border-border bg-secondary py-20">
     <div class="container">
-      <h1 class="text-4xl font-bold text-foreground">
-        {t('faq.title') || 'Faq'}
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">
+        FAQ
+      </p>
+
+      <h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        Frequently asked questions about MuBrain.
       </h1>
-      <p class="mt-4 text-foreground-muted max-w-2xl">
-        {t('faq.description') || 'Add your content here.'}
+
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-foreground-muted">
+        A few reference points to understand the project, its structure, and its use with AI agents.
       </p>
     </div>
   </section>
 
-  <!-- Content Section -->
   <section class="py-16">
-    <div class="container">
-      <!-- Your content -->
+    <div class="container max-w-4xl">
+      <div class="space-y-6">
+        {faqs.map((item) => (
+          <article class="rounded-2xl border border-border bg-background-subtle p-8">
+            <h2 class="text-xl font-semibold text-foreground">
+              {item.question}
+            </h2>
+            <p class="mt-4 leading-7 text-foreground-muted">
+              {item.answer}
+            </p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 </PageLayout>

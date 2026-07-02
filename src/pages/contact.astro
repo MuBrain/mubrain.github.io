@@ -1,25 +1,64 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+
+const title = 'Contact';
+const description =
+  'Contacter MuBrain ou suivre le projet à travers le dépôt GitHub et les publications publiques.';
 ---
 
-<PageLayout
-  title="Contact"
-  description="Add your description here"
->
-  <!-- Hero Section -->
-  <section class="py-20 bg-secondary">
+<PageLayout title={title} description={description} routeId="contact">
+  <section class="border-b border-border bg-secondary py-20">
     <div class="container">
-      <h1 class="text-4xl font-bold text-foreground">Contact</h1>
-      <p class="mt-4 text-foreground-muted max-w-2xl">
-        Add your content here.
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">
+        Contact
+      </p>
+
+      <h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        Échanger autour de MuBrain.
+      </h1>
+
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-foreground-muted">
+        MuBrain est en construction progressive. Pour l’instant, le point d’entrée le plus stable
+        reste le dépôt GitHub du projet et les publications associées.
       </p>
     </div>
   </section>
 
-  <!-- Content Section -->
   <section class="py-16">
-    <div class="container">
-      <!-- Your content -->
+    <div class="container grid gap-8 lg:grid-cols-2">
+      <article class="rounded-2xl border border-border bg-background-subtle p-8">
+        <h2 class="text-2xl font-semibold text-foreground">
+          Suivre le dépôt
+        </h2>
+
+        <p class="mt-4 text-foreground-muted">
+          Le dépôt GitHub conserve le site, la base OKF, les conventions de rédaction et
+          l’historique des décisions techniques.
+        </p>
+
+        <div class="mt-6">
+          <Button href="https://github.com/MuBrain/mubrain.github.io" target="_blank">
+            Ouvrir le dépôt GitHub
+          </Button>
+        </div>
+      </article>
+
+      <article class="rounded-2xl border border-border bg-background-subtle p-8">
+        <h2 class="text-2xl font-semibold text-foreground">
+          Proposer une discussion
+        </h2>
+
+        <p class="mt-4 text-foreground-muted">
+          Les sujets les plus pertinents concernent l’IA, les agents, le doc-as-code,
+          la structuration de la connaissance, l’adoption de Copilot et les organisations apprenantes.
+        </p>
+
+        <p class="mt-4 text-foreground-muted">
+          Une page de contact plus complète pourra être ajoutée lorsque le formulaire public
+          et les canaux officiels seront stabilisés.
+        </p>
+      </article>
     </div>
   </section>
 </PageLayout>

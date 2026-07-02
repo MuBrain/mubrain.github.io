@@ -1,25 +1,70 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
+
+const title = 'FAQ';
+const description =
+  'Questions fréquentes sur MuBrain, sa structure OKF, son approche bilingue et son usage avec des agents IA.';
+
+const faqs = [
+  {
+    question: 'Qu’est-ce que MuBrain ?',
+    answer:
+      'MuBrain est un site et une base de connaissance consacrés à l’intelligence artificielle, aux agents, au doc-as-code, à la gestion de la connaissance et aux organisations apprenantes.',
+  },
+  {
+    question: 'Pourquoi utiliser une base OKF / LLM-WIKI ?',
+    answer:
+      'Parce qu’un simple site public ne suffit pas. La base OKF conserve les concepts, méthodes, projets et décisions dans des fichiers Markdown structurés avec du YAML, afin de rester lisible par les humains et exploitable par les agents IA.',
+  },
+  {
+    question: 'Quelle langue est la source de vérité ?',
+    answer:
+      'Le français canadien est la source de vérité. Les versions anglaises sont des traductions validées humainement.',
+  },
+  {
+    question: 'Est-ce que tous les fichiers OKF sont publiés sur le site ?',
+    answer:
+      'Non. Les fichiers OKF vivent dans le dossier knowledge/okf et servent de référentiel. Certains contenus peuvent ensuite inspirer des articles publics, mais ils ne sont pas publiés automatiquement.',
+  },
+  {
+    question: 'Pourquoi GitHub et Astro ?',
+    answer:
+      'GitHub permet de versionner les décisions et les contenus. Astro permet de publier un site rapide, statique et facilement déployable sur GitHub Pages.',
+  },
+];
 ---
 
-<PageLayout
-  title="Faq"
-  description="Add your description here"
->
-  <!-- Hero Section -->
-  <section class="py-20 bg-secondary">
+<PageLayout title={title} description={description} routeId="faq">
+  <section class="border-b border-border bg-secondary py-20">
     <div class="container">
-      <h1 class="text-4xl font-bold text-foreground">Faq</h1>
-      <p class="mt-4 text-foreground-muted max-w-2xl">
-        Add your content here.
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">
+        FAQ
+      </p>
+
+      <h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        Questions fréquentes sur MuBrain.
+      </h1>
+
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-foreground-muted">
+        Quelques repères pour comprendre le projet, sa structure et son usage avec des agents IA.
       </p>
     </div>
   </section>
 
-  <!-- Content Section -->
   <section class="py-16">
-    <div class="container">
-      <!-- Your content -->
+    <div class="container max-w-4xl">
+      <div class="space-y-6">
+        {faqs.map((item) => (
+          <article class="rounded-2xl border border-border bg-background-subtle p-8">
+            <h2 class="text-xl font-semibold text-foreground">
+              {item.question}
+            </h2>
+            <p class="mt-4 leading-7 text-foreground-muted">
+              {item.answer}
+            </p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 </PageLayout>
