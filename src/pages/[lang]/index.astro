@@ -1,25 +1,14 @@
 ---
 /**
- * Home/Landing Page (i18n version)
- * URL: /{lang}/ (e.g., /es/, /fr/)
+ * MuBrain localized home page
+ * URL: /{lang}/
  */
 import LandingLayout from '@/layouts/LandingLayout.astro';
-import { Hero } from '@/components/hero';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
-import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import SocialProof from '@/components/ui/marketing/SocialProof/SocialProof.astro';
-import { TerminalDemo } from '@/components/ui/marketing/TerminalDemo';
-import TechStack from '@/components/landing/TechStack.astro';
-import FeatureTabs from '@/components/landing/FeatureTabs.tsx';
-import LighthouseScores from '@/components/landing/LighthouseScores.astro';
-import Credibility from '@/components/landing/Credibility.astro';
-import CTA from '@/components/landing/CTA.astro';
 import { locales, defaultLocale, isValidLocale, type Locale } from '@/i18n/config';
-import { useTranslations, getLocalizedPath } from '@/i18n/index';
 
 export function getStaticPaths() {
-  // Only generate paths for non-default locales
   return locales
     .filter((lang) => lang !== defaultLocale)
     .map((lang) => ({
@@ -34,60 +23,155 @@ if (!lang || !isValidLocale(lang)) {
 }
 
 const locale = lang as Locale;
-const t = useTranslations(locale);
 
-const ctaLink = '#cta';
+const copy: Record<
+  Locale,
+  {
+    title: string;
+    description: string;
+    heroTitle: string;
+    heroDescription: string;
+    primaryCta: string;
+    secondaryCta: string;
+    cards: Array<{ title: string; description: string }>;
+    closingTitle: string;
+    closingDescription: string;
+    closingCta: string;
+  }
+> = {
+  fr: {
+    title: 'MuBrain — connaissance structurée pour humains et agents IA',
+    description:
+      'MuBrain explore la manière de structurer, publier et maintenir la connaissance pour la rendre utile aux humains, aux organisations et aux agents IA.',
+    heroTitle: 'Structurer la connaissance pour les humains et les agents IA.',
+    heroDescription:
+      'MuBrain est un espace de réflexion, de documentation et d’expérimentation autour de l’intelligence artificielle, des agents, du doc-as-code, des bases de connaissance et des organisations apprenantes.',
+    primaryCta: 'Lire l’article de fondation',
+    secondaryCta: 'Explorer le blog',
+    cards: [
+      {
+        title: 'Knowledge first',
+        description:
+          'Le site est construit autour d’une base de connaissance structurée, versionnée dans GitHub et pensée pour rester lisible par les humains comme par les machines.',
+      },
+      {
+        title: 'Français canadien source de vérité',
+        description:
+          'Les contenus de référence sont d’abord produits en français canadien. Les versions anglaises sont des traductions validées, pas la source principale.',
+      },
+      {
+        title: 'Prêt pour les agents',
+        description:
+          'La structure OKF / LLM-WIKI documente les concepts, méthodes, projets et décisions pour faciliter la réutilisation par ChatGPT, Copilot, Codex ou d’autres agents.',
+      },
+    ],
+    closingTitle: 'Une base pour publier, documenter et transmettre.',
+    closingDescription:
+      'MuBrain n’est pas seulement un blog. C’est un laboratoire documentaire où les idées, les méthodes et les décisions sont conservées dans une structure exploitable à long terme.',
+    closingCta: 'Comprendre le projet MuBrain',
+  },
+  en: {
+    title: 'MuBrain — structured knowledge for humans and AI agents',
+    description:
+      'MuBrain explores how to structure, publish, and maintain knowledge so it remains useful to humans, organizations, and AI agents.',
+    heroTitle: 'Structured knowledge for humans and AI agents.',
+    heroDescription:
+      'MuBrain is a space for thinking, documenting, and experimenting with artificial intelligence, agents, doc-as-code, knowledge bases, and learning organizations.',
+    primaryCta: 'Read the foundation article',
+    secondaryCta: 'Explore the blog',
+    cards: [
+      {
+        title: 'Knowledge first',
+        description:
+          'The site is built around a structured knowledge base, versioned in GitHub and designed to remain readable by humans and machines.',
+      },
+      {
+        title: 'French Canadian as source of truth',
+        description:
+          'Reference content is created first in French Canadian. English versions are validated translations, not the primary source.',
+      },
+      {
+        title: 'Agent-ready',
+        description:
+          'The OKF / LLM-WIKI structure documents concepts, methods, projects, and decisions so they can be reused by ChatGPT, Copilot, Codex, or other agents.',
+      },
+    ],
+    closingTitle: 'A foundation to publish, document, and transmit knowledge.',
+    closingDescription:
+      'MuBrain is not only a blog. It is a documentation lab where ideas, methods, and decisions are preserved in a structure designed for long-term reuse.',
+    closingCta: 'Understand the MuBrain project',
+  },
+};
+
+const c = copy[locale];
 ---
 
 <LandingLayout
-  title={t('hero.title') + ' ' + t('hero.titleHighlight')}
-  description={t('hero.description')}
+  title={c.title}
+  description={c.description}
   lang={locale}
   routeId="home"
 >
-  <Hero layout="split" size="lg" showGrid showBlob blobPosition="right">
-    <Badge slot="badge" pill pulse>{t('hero.badge')}</Badge>
+  <main class="min-h-screen">
+    <section class="relative overflow-hidden border-b border-border">
+      <div class="container mx-auto px-6 py-24 lg:py-32">
+        <div class="max-w-4xl">
+          <Badge pill>MuBrain</Badge>
 
-    <h1 slot="title">
-      {t('hero.title')} <span class="text-brand-500">{t('hero.titleHighlight')}</span>
-    </h1>
+          <h1 class="mt-8 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            {c.heroTitle}
+          </h1>
 
-    <p slot="description">
-      {t('hero.description')}
-    </p>
+          <p class="mt-6 max-w-3xl text-lg leading-8 text-foreground-muted">
+            {c.heroDescription}
+          </p>
 
-    <Fragment slot="actions">
-      <Button size="lg" href={ctaLink}>
-        {t('hero.cta')}
-        <Icon name="arrow-right" size="sm" />
-      </Button>
-      <Button
-        size="lg"
-        variant="outline"
-        href="https://github.com/southwellmedia/velocity"
-        target="_blank"
-      >
-        <Icon name="github" size="sm" />
-        {t('hero.github')}
-      </Button>
-    </Fragment>
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Button size="lg" href="/en/blog/mubrain-foundation/">
+              {c.primaryCta}
+            </Button>
 
-    <TerminalDemo slot="aside" client:load />
+            <Button size="lg" variant="outline" href="/en/blog/">
+              {c.secondaryCta}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <SocialProof
-      class="mt-[var(--space-stack-lg)]"
-      text={t('hero.socialProof')}
-      avatars={[
-        'https://i.pravatar.cc/150?img=12',
-        'https://i.pravatar.cc/150?img=33',
-        'https://www.southwellmedia.com/_vercel/image?url=%2Fassets%2FMichaelFroseth2025.jpg&w=828&q=90',
-      ]}
-    />
-  </Hero>
+    <section class="container mx-auto px-6 py-20">
+      <div class="grid gap-8 lg:grid-cols-3">
+        {c.cards.map((card) => (
+          <article class="rounded-2xl border border-border bg-background-subtle p-8">
+            <h2 class="text-2xl font-semibold text-foreground">
+              {card.title}
+            </h2>
+            <p class="mt-4 text-foreground-muted">
+              {card.description}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
 
-  <TechStack locale={locale} />
-  <FeatureTabs client:visible />
-  <LighthouseScores locale={locale} />
-  <Credibility locale={locale} />
-  <CTA locale={locale} />
+    <section class="border-t border-border">
+      <div class="container mx-auto px-6 py-20">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl font-bold tracking-tight text-foreground">
+            {c.closingTitle}
+          </h2>
+
+          <p class="mt-6 text-lg leading-8 text-foreground-muted">
+            {c.closingDescription}
+          </p>
+
+          <div class="mt-8">
+            <Button size="lg" href="/en/about/">
+              {c.closingCta}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </LandingLayout>
