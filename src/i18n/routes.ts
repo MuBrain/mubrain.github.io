@@ -67,13 +67,7 @@ export const routes = {
     nav: { show: true, order: 2, label: 'nav.blog' },
   },
 
-  // Components showcase
-  components: {
-    fr: 'composants', en: 'components',
-    nav: { show: true, order: 1, label: 'nav.components' },
-  },
-
-  // Custom page: faq
+   // Custom page: faq
   faq: {
     fr: 'faq', en: 'faq',
     nav: { show: true, order: 14, label: 'nav.faq' },
