@@ -1,0 +1,259 @@
+---
+title: "Knowledge Engineering à l'ère des intelligences artificielles génératives"
+description: "Cet article propose l'hypothèse qu'une nouvelle étape de maturité est en train d'émerger : le Knowledge Engineering appliqué aux systèmes génératifs."
+publishedAt: 2026-07-28
+author: "MuBrain"
+tags:
+  - mubrain
+  - knowledge engineering
+  - connaissance
+  - connaissance
+draft: false
+featured: true
+locale: fr
+---
+
+# Knowledge Engineering à l'ère des intelligences artificielles génératives : vers une nouvelle discipline de l'ingénierie des connaissances
+
+## Résumé
+
+L'adoption rapide des modèles de langage (Large Language Models, LLM) a profondément modifié la manière dont les organisations produisent, manipulent et exploitent leurs connaissances. Jusqu'à présent, les efforts de recherche et d'industrialisation se sont principalement concentrés sur les performances des modèles, les architectures d'agents, les techniques de *prompt engineering* ou encore les mécanismes de *Retrieval-Augmented Generation* (RAG). En revanche, relativement peu de travaux s'intéressent à la manière dont les connaissances elles-mêmes devraient être conçues afin d'être réutilisées de manière fiable par des intelligences artificielles.
+
+Cet article propose l'hypothèse qu'une nouvelle étape de maturité est en train d'émerger : le **Knowledge Engineering appliqué aux systèmes génératifs**. Cette discipline ne cherche plus uniquement à structurer la connaissance pour les êtres humains, mais à concevoir des connaissances directement exploitables par des agents conversationnels, des assistants numériques et des systèmes multi-agents.
+
+L'objectif de cet article est de définir le cadre de recherche qui guidera les travaux futurs de MuBrain.
+
+---
+
+# 1. Contexte
+
+Les connaissances d'une organisation ont longtemps été produites dans une logique documentaire.
+
+Procédures.
+
+Rapports.
+
+Normes.
+
+Guides utilisateurs.
+
+Bases documentaires.
+
+Ces contenus avaient un objectif principal : être lus et interprétés par un être humain.
+
+L'arrivée des modèles de langage modifie profondément cette hypothèse.
+
+Pour la première fois, une part significative des connaissances d'une organisation est consultée non plus directement par un collaborateur, mais par une intelligence artificielle agissant comme intermédiaire.
+
+Cette évolution modifie la nature même de la connaissance.
+
+La question n'est plus uniquement :
+
+> *Comment documenter correctement une information ?*
+
+Elle devient :
+
+> *Comment concevoir une connaissance afin qu'elle soit correctement interprétée par une intelligence artificielle tout en restant compréhensible pour un être humain ?*
+
+---
+
+# 2. Limites des approches actuelles
+
+Les approches actuellement observées dans les organisations reposent principalement sur quatre stratégies.
+
+* l'amélioration des prompts ;
+* l'ajout de mémoire conversationnelle ;
+* l'enrichissement du contexte par RAG ;
+* la spécialisation d'agents.
+
+Ces approches améliorent les performances des systèmes.
+
+Elles ne répondent cependant pas à une question fondamentale.
+
+La qualité des réponses dépend-elle principalement du modèle… ou de la qualité de la connaissance qui lui est fournie ?
+
+Cette question demeure largement ouverte.
+
+---
+
+# 3. Hypothèse de recherche
+
+Les travaux proposés par MuBrain reposent sur l'hypothèse suivante.
+
+> À qualité de modèle équivalente, la structuration explicite des connaissances influence de manière mesurable la qualité, la reproductibilité et la stabilité des réponses produites par une intelligence artificielle générative.
+
+Cette hypothèse conduit naturellement à déplacer l'objet d'étude.
+
+Il ne s'agit plus uniquement d'optimiser le modèle.
+
+Il s'agit d'optimiser la connaissance.
+
+---
+
+# 4. Définition proposée
+
+Dans le cadre de ces travaux, nous proposons la définition suivante.
+
+> **Le Knowledge Engineering est la discipline consistant à concevoir, structurer, maintenir et gouverner des connaissances de manière à optimiser leur exploitation simultanée par des êtres humains et des intelligences artificielles.**
+
+Cette définition introduit plusieurs caractéristiques nouvelles.
+
+La connaissance devient :
+
+* versionnable ;
+* modulaire ;
+* composable ;
+* traçable ;
+* réutilisable ;
+* portable entre différents assistants.
+
+Ces propriétés sont aujourd'hui courantes dans l'ingénierie logicielle.
+
+Elles restent largement absentes des systèmes documentaires traditionnels.
+
+---
+
+# 5. De la documentation vers les compétences
+
+Les organisations documentent aujourd'hui principalement leurs processus.
+
+Les intelligences artificielles nécessitent cependant davantage qu'une simple documentation.
+
+Elles nécessitent des méthodes.
+
+Une procédure décrit une suite d'actions.
+
+Une compétence décrit une manière d'agir.
+
+Cette distinction est fondamentale.
+
+Par exemple, un document expliquant comment rédiger un rapport constitue une procédure.
+
+En revanche, une description des critères de qualité, des hypothèses à vérifier, des erreurs fréquentes et des points de contrôle constitue une compétence.
+
+Les connaissances deviennent alors directement mobilisables lors de l'exécution d'une tâche.
+
+---
+
+# 6. Une architecture de connaissances multicouche
+
+Les premiers travaux de MuBrain conduisent à distinguer plusieurs niveaux de connaissances.
+
+**Niveau 1 — Mémoire personnelle**
+
+Informations relativement stables concernant un utilisateur.
+
+Préférences.
+
+Style rédactionnel.
+
+Contexte professionnel.
+
+---
+
+**Niveau 2 — Instructions permanentes**
+
+Règles générales de fonctionnement.
+
+Par exemple :
+
+* distinguer les faits des hypothèses ;
+* signaler les informations manquantes ;
+* citer les sources.
+
+---
+
+**Niveau 3 — Compétences**
+
+Méthodes spécialisées associées à une famille de tâches.
+
+Exemples :
+
+* rédiger un rapport ;
+* analyser un budget ;
+* préparer une formation ;
+* construire une présentation.
+
+---
+
+**Niveau 4 — Mission**
+
+Description du travail demandé.
+
+Cette séparation permet d'éviter la répétition systématique des mêmes connaissances dans chaque interaction.
+
+---
+
+# 7. Les compétences comme unités fondamentales
+
+Nous proposons d'introduire la notion de **Knowledge Skill**.
+
+Une Knowledge Skill est une unité autonome de connaissance décrivant une méthode de réalisation plutôt qu'un résultat attendu.
+
+Une compétence peut notamment contenir :
+
+* son objectif ;
+* ses prérequis ;
+* ses étapes ;
+* ses critères qualité ;
+* ses points de contrôle ;
+* ses erreurs fréquentes ;
+* ses dépendances avec d'autres compétences.
+
+Cette structure rappelle volontairement les notions de modules logiciels ou de composants réutilisables.
+
+---
+
+# 8. Gouvernance des connaissances
+
+Une conséquence directe de cette approche concerne la gouvernance.
+
+Les compétences deviennent des actifs informationnels.
+
+Elles nécessitent :
+
+* une gestion des versions ;
+* une validation scientifique ou métier ;
+* une traçabilité des modifications ;
+* une revue par les pairs ;
+* une diffusion contrôlée.
+
+Cette logique rapproche progressivement les connaissances des pratiques établies dans le développement logiciel.
+
+---
+
+# 9. Axes de recherche
+
+Les travaux futurs de MuBrain porteront notamment sur les questions suivantes.
+
+* Comment mesurer objectivement l'effet de la structuration des connaissances sur la qualité des réponses produites par un LLM ?
+
+* Quels sont les critères permettant d'évaluer une compétence indépendamment du modèle utilisé ?
+
+* Une même compétence peut-elle être utilisée de manière identique par différents assistants (Microsoft 365 Copilot, ChatGPT, Claude ou d'autres systèmes agentiques) ?
+
+* Quels mécanismes permettent d'assurer la gouvernance, la version et la diffusion des compétences à l'échelle d'une organisation ?
+
+* Existe-t-il une granularité optimale pour une compétence afin d'équilibrer réutilisabilité, lisibilité et efficacité conversationnelle ?
+
+* Dans quelle mesure une structuration explicite des compétences améliore-t-elle la reproductibilité des résultats entre plusieurs utilisateurs ?
+
+Ces questions constitueront le socle des expérimentations publiées dans les prochains travaux.
+
+---
+
+# Conclusion
+
+L'émergence des intelligences artificielles génératives ne remet pas uniquement en question les interfaces homme-machine.
+
+Elle interroge la nature même des connaissances que nous produisons.
+
+Si les logiciels ont progressivement conduit à l'apparition de disciplines telles que le Software Engineering ou le Data Engineering, il devient légitime de considérer que les systèmes conversationnels nécessitent désormais leur propre discipline de structuration des connaissances.
+
+Le Knowledge Engineering, tel qu'il est proposé dans cet article, ne constitue pas une rupture avec les approches historiques de l'ingénierie des connaissances.
+
+Il en constitue une évolution.
+
+Son objet d'étude n'est plus uniquement la représentation des connaissances, mais leur capacité à être comprises, réutilisées, gouvernées et transmises de manière fiable par des intelligences artificielles collaborant avec des êtres humains.
+
+Les travaux présentés ici constituent une première proposition de cadre conceptuel. Leur validation reposera sur des expérimentations reproductibles, des mesures objectives et des comparaisons entre différentes approches de structuration des connaissances. C'est à cette condition que les hypothèses formulées pourront progressivement être confirmées, nuancées ou réfutées, conformément à la démarche scientifique qui guidera les recherches de MuBrain.
