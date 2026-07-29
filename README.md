@@ -66,6 +66,11 @@ sur GitHub Pages avec `SITE_URL=https://mubrain.github.io`.
 GitHub Pages étant un hébergement statique, aucun formulaire ne doit cibler une
 route serveur locale; un futur formulaire devra utiliser un service externe.
 
+La route `src/pages/llms.txt.ts` génère automatiquement `/llms.txt` pendant la
+construction. Elle suit le format proposé par <https://llmstxt.org/>, présente
+les pages essentielles et référence toutes les publications non brouillon en
+FR-CA et EN-CA.
+
 Pour passer plus tard à `mubrain.com` :
 
 1. configurer le domaine personnalisé dans GitHub Pages;

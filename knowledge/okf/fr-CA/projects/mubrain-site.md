@@ -62,3 +62,7 @@ peut plutôt utiliser `okfSource` pour déclarer le fichier OKF qui l’a inspir
 Le site reste publié à `https://mubrain.github.io` jusqu’à la configuration du
 domaine `mubrain.com`. GitHub Pages étant statique, les formulaires devront
 utiliser un service externe plutôt qu’une route API Astro.
+
+Le fichier public `/llms.txt` est généré par Astro à chaque construction. Il
+fournit aux agents IA un aperçu concis du site et des liens vers les contenus
+publiés, conformément à la proposition de format de `llmstxt.org`.
