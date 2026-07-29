@@ -10,6 +10,7 @@ language: en-CA
 source_of_truth: false
 translation_of: "../../fr-CA/<section>/<file>.md"
 translation_status: draft
+source_digest: sha256:<digest-of-fr-ca-source>
 status: draft
 ---
 

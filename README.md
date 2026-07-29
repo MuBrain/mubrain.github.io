@@ -43,8 +43,15 @@ Les articles utilisent aussi :
 - `translationKey` : identifiant stable partagé entre les langues;
 - `sourceOfTruth` : `true` uniquement pour le français canadien;
 - `translationOf` : référence au contenu français pour une traduction anglaise.
+- `translationStatus` : état de validation de la traduction;
+- `sourceDigest` : empreinte de la version française effectivement traduite.
 
-Ces règles sont validées par `src/content.config.ts` pendant la construction.
+Ces règles sont validées par `src/content.config.ts` et par
+`pnpm content:check` pendant la construction. Une modification de la source
+FR-CA invalide automatiquement l’empreinte EN-CA jusqu’à sa retraduction.
+Le même contrôle couvre les paires de fichiers sous `knowledge/okf/fr-CA` et
+`knowledge/okf/en-CA`; les traductions OKF générées doivent rester à l’état
+`review` jusqu’à leur validation humaine.
 
 ## Internationalisation
 
