@@ -20,9 +20,10 @@
   ],
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "pnpm content:check && astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "content:check": "node scripts/validate-content.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",

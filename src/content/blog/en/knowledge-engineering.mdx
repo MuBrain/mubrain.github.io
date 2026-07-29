@@ -1,263 +1,265 @@
 ---
-title: "Knowledge Engineering à l'ère des intelligences artificielles génératives"
-description: "Cet article propose l'hypothèse qu'une nouvelle étape de maturité est en train d'émerger : le Knowledge Engineering appliqué aux systèmes génératifs."
+title: "Knowledge Engineering in the Age of Generative Artificial Intelligence"
+description: "This article proposes the hypothesis that a new stage of maturity is emerging: Knowledge Engineering applied to generative systems."
 publishedAt: 2026-07-28
 author: "MuBrain"
 tags:
   - mubrain
   - knowledge engineering
-  - connaissance
-  - connaissance
-draft: true
+  - knowledge
+draft: false
 featured: true
 locale: en
 language: en-CA
 translationKey: knowledge-engineering
 sourceOfTruth: false
 translationOf: fr/knowledge-engineering
+translationStatus: validated
+sourceDigest: sha256:f6f39d42a781b729f352805d6de723b7dede14cf51e28e165ad7de55e58fa611
+okfSource: knowledge/okf/fr-CA/concepts/knowledge-engineering.md
 ---
 
-# Knowledge Engineering à l'ère des intelligences artificielles génératives : vers une nouvelle discipline de l'ingénierie des connaissances
+# Knowledge Engineering in the Age of Generative Artificial Intelligence: Towards a New Discipline of Knowledge Engineering
 
-## Résumé
+## Abstract
 
-L'adoption rapide des modèles de langage (Large Language Models, LLM) a profondément modifié la manière dont les organisations produisent, manipulent et exploitent leurs connaissances. Jusqu'à présent, les efforts de recherche et d'industrialisation se sont principalement concentrés sur les performances des modèles, les architectures d'agents, les techniques de *prompt engineering* ou encore les mécanismes de *Retrieval-Augmented Generation* (RAG). En revanche, relativement peu de travaux s'intéressent à la manière dont les connaissances elles-mêmes devraient être conçues afin d'être réutilisées de manière fiable par des intelligences artificielles.
+The rapid adoption of Large Language Models (LLMs) has profoundly changed how organizations produce, manage, and use their knowledge. To date, research and industrialization efforts have focused primarily on model performance, agent architectures, *prompt engineering* techniques, and *Retrieval-Augmented Generation* (RAG) mechanisms. Relatively little work, however, has examined how knowledge itself should be designed so that it can be reliably reused by artificial intelligence.
 
-Cet article propose l'hypothèse qu'une nouvelle étape de maturité est en train d'émerger : le **Knowledge Engineering appliqué aux systèmes génératifs**. Cette discipline ne cherche plus uniquement à structurer la connaissance pour les êtres humains, mais à concevoir des connaissances directement exploitables par des agents conversationnels, des assistants numériques et des systèmes multi-agents.
+This article proposes the hypothesis that a new stage of maturity is emerging: **Knowledge Engineering applied to generative systems**. This discipline seeks not only to structure knowledge for humans, but also to design knowledge that conversational agents, digital assistants, and multi-agent systems can use directly.
 
-L'objectif de cet article est de définir le cadre de recherche qui guidera les travaux futurs de MuBrain.
-
----
-
-# 1. Contexte
-
-Les connaissances d'une organisation ont longtemps été produites dans une logique documentaire.
-
-Procédures.
-
-Rapports.
-
-Normes.
-
-Guides utilisateurs.
-
-Bases documentaires.
-
-Ces contenus avaient un objectif principal : être lus et interprétés par un être humain.
-
-L'arrivée des modèles de langage modifie profondément cette hypothèse.
-
-Pour la première fois, une part significative des connaissances d'une organisation est consultée non plus directement par un collaborateur, mais par une intelligence artificielle agissant comme intermédiaire.
-
-Cette évolution modifie la nature même de la connaissance.
-
-La question n'est plus uniquement :
-
-> *Comment documenter correctement une information ?*
-
-Elle devient :
-
-> *Comment concevoir une connaissance afin qu'elle soit correctement interprétée par une intelligence artificielle tout en restant compréhensible pour un être humain ?*
+The objective of this article is to define the research framework that will guide MuBrain's future work.
 
 ---
 
-# 2. Limites des approches actuelles
+# 1. Context
 
-Les approches actuellement observées dans les organisations reposent principalement sur quatre stratégies.
+An organization's knowledge has long been produced according to a document-centric model.
 
-* l'amélioration des prompts ;
-* l'ajout de mémoire conversationnelle ;
-* l'enrichissement du contexte par RAG ;
-* la spécialisation d'agents.
+Procedures.
 
-Ces approches améliorent les performances des systèmes.
+Reports.
 
-Elles ne répondent cependant pas à une question fondamentale.
+Standards.
 
-La qualité des réponses dépend-elle principalement du modèle… ou de la qualité de la connaissance qui lui est fournie ?
+User guides.
 
-Cette question demeure largement ouverte.
+Document repositories.
 
----
+This content had one primary objective: to be read and interpreted by a human.
 
-# 3. Hypothèse de recherche
+The arrival of language models profoundly changes this assumption.
 
-Les travaux proposés par MuBrain reposent sur l'hypothèse suivante.
+For the first time, a significant share of an organization's knowledge is no longer consulted directly by an employee, but by artificial intelligence acting as an intermediary.
 
-> À qualité de modèle équivalente, la structuration explicite des connaissances influence de manière mesurable la qualité, la reproductibilité et la stabilité des réponses produites par une intelligence artificielle générative.
+This evolution changes the very nature of knowledge.
 
-Cette hypothèse conduit naturellement à déplacer l'objet d'étude.
+The question is no longer simply:
 
-Il ne s'agit plus uniquement d'optimiser le modèle.
+> *How should information be documented properly?*
 
-Il s'agit d'optimiser la connaissance.
+It becomes:
 
----
-
-# 4. Définition proposée
-
-Dans le cadre de ces travaux, nous proposons la définition suivante.
-
-> **Le Knowledge Engineering est la discipline consistant à concevoir, structurer, maintenir et gouverner des connaissances de manière à optimiser leur exploitation simultanée par des êtres humains et des intelligences artificielles.**
-
-Cette définition introduit plusieurs caractéristiques nouvelles.
-
-La connaissance devient :
-
-* versionnable ;
-* modulaire ;
-* composable ;
-* traçable ;
-* réutilisable ;
-* portable entre différents assistants.
-
-Ces propriétés sont aujourd'hui courantes dans l'ingénierie logicielle.
-
-Elles restent largement absentes des systèmes documentaires traditionnels.
+> *How should knowledge be designed so that it is interpreted correctly by artificial intelligence while remaining understandable to a human?*
 
 ---
 
-# 5. De la documentation vers les compétences
+# 2. Limitations of Current Approaches
 
-Les organisations documentent aujourd'hui principalement leurs processus.
+The approaches currently observed in organizations rely primarily on four strategies.
 
-Les intelligences artificielles nécessitent cependant davantage qu'une simple documentation.
+* improving prompts;
+* adding conversational memory;
+* enriching context through RAG;
+* specializing agents.
 
-Elles nécessitent des méthodes.
+These approaches improve system performance.
 
-Une procédure décrit une suite d'actions.
+However, they do not answer a fundamental question.
 
-Une compétence décrit une manière d'agir.
+Does response quality depend primarily on the model—or on the quality of the knowledge provided to it?
 
-Cette distinction est fondamentale.
-
-Par exemple, un document expliquant comment rédiger un rapport constitue une procédure.
-
-En revanche, une description des critères de qualité, des hypothèses à vérifier, des erreurs fréquentes et des points de contrôle constitue une compétence.
-
-Les connaissances deviennent alors directement mobilisables lors de l'exécution d'une tâche.
+This question remains largely open.
 
 ---
 
-# 6. Une architecture de connaissances multicouche
+# 3. Research Hypothesis
 
-Les premiers travaux de MuBrain conduisent à distinguer plusieurs niveaux de connaissances.
+MuBrain's proposed work is based on the following hypothesis.
 
-**Niveau 1 — Mémoire personnelle**
+> Given models of equivalent quality, explicitly structured knowledge has a measurable influence on the quality, reproducibility, and stability of responses produced by generative artificial intelligence.
 
-Informations relativement stables concernant un utilisateur.
+This hypothesis naturally shifts the object of study.
 
-Préférences.
+The goal is no longer only to optimize the model.
 
-Style rédactionnel.
-
-Contexte professionnel.
+It is to optimize knowledge.
 
 ---
 
-**Niveau 2 — Instructions permanentes**
+# 4. Proposed Definition
 
-Règles générales de fonctionnement.
+For the purposes of this work, we propose the following definition.
 
-Par exemple :
+> **Knowledge Engineering is the discipline of designing, structuring, maintaining, and governing knowledge to optimize its simultaneous use by humans and artificial intelligence.**
 
-* distinguer les faits des hypothèses ;
-* signaler les informations manquantes ;
-* citer les sources.
+This definition introduces several new characteristics.
 
----
+Knowledge becomes:
 
-**Niveau 3 — Compétences**
+* version-controlled;
+* modular;
+* composable;
+* traceable;
+* reusable;
+* portable across different assistants.
 
-Méthodes spécialisées associées à une famille de tâches.
+These properties are now commonplace in software engineering.
 
-Exemples :
-
-* rédiger un rapport ;
-* analyser un budget ;
-* préparer une formation ;
-* construire une présentation.
+They remain largely absent from traditional document management systems.
 
 ---
 
-**Niveau 4 — Mission**
+# 5. From Documentation to Skills
 
-Description du travail demandé.
+Organizations today primarily document their processes.
 
-Cette séparation permet d'éviter la répétition systématique des mêmes connaissances dans chaque interaction.
+Artificial intelligence, however, requires more than documentation alone.
 
----
+It requires methods.
 
-# 7. Les compétences comme unités fondamentales
+A procedure describes a sequence of actions.
 
-Nous proposons d'introduire la notion de **Knowledge Skill**.
+A skill describes a way of acting.
 
-Une Knowledge Skill est une unité autonome de connaissance décrivant une méthode de réalisation plutôt qu'un résultat attendu.
+This distinction is fundamental.
 
-Une compétence peut notamment contenir :
+For example, a document explaining how to write a report constitutes a procedure.
 
-* son objectif ;
-* ses prérequis ;
-* ses étapes ;
-* ses critères qualité ;
-* ses points de contrôle ;
-* ses erreurs fréquentes ;
-* ses dépendances avec d'autres compétences.
+By contrast, a description of quality criteria, assumptions to verify, common errors, and checkpoints constitutes a skill.
 
-Cette structure rappelle volontairement les notions de modules logiciels ou de composants réutilisables.
+Knowledge can then be applied directly when performing a task.
 
 ---
 
-# 8. Gouvernance des connaissances
+# 6. A Multilayered Knowledge Architecture
 
-Une conséquence directe de cette approche concerne la gouvernance.
+MuBrain's initial work has led to a distinction between several layers of knowledge.
 
-Les compétences deviennent des actifs informationnels.
+**Layer 1 — Personal Memory**
 
-Elles nécessitent :
+Relatively stable information about a user.
 
-* une gestion des versions ;
-* une validation scientifique ou métier ;
-* une traçabilité des modifications ;
-* une revue par les pairs ;
-* une diffusion contrôlée.
+Preferences.
 
-Cette logique rapproche progressivement les connaissances des pratiques établies dans le développement logiciel.
+Writing style.
+
+Professional context.
 
 ---
 
-# 9. Axes de recherche
+**Layer 2 — Standing Instructions**
 
-Les travaux futurs de MuBrain porteront notamment sur les questions suivantes.
+General operating rules.
 
-* Comment mesurer objectivement l'effet de la structuration des connaissances sur la qualité des réponses produites par un LLM ?
+For example:
 
-* Quels sont les critères permettant d'évaluer une compétence indépendamment du modèle utilisé ?
+* distinguish facts from hypotheses;
+* flag missing information;
+* cite sources.
 
-* Une même compétence peut-elle être utilisée de manière identique par différents assistants (Microsoft 365 Copilot, ChatGPT, Claude ou d'autres systèmes agentiques) ?
+---
 
-* Quels mécanismes permettent d'assurer la gouvernance, la version et la diffusion des compétences à l'échelle d'une organisation ?
+**Layer 3 — Skills**
 
-* Existe-t-il une granularité optimale pour une compétence afin d'équilibrer réutilisabilité, lisibilité et efficacité conversationnelle ?
+Specialized methods associated with a family of tasks.
 
-* Dans quelle mesure une structuration explicite des compétences améliore-t-elle la reproductibilité des résultats entre plusieurs utilisateurs ?
+Examples:
 
-Ces questions constitueront le socle des expérimentations publiées dans les prochains travaux.
+* writing a report;
+* analyzing a budget;
+* preparing a training session;
+* creating a presentation.
+
+---
+
+**Layer 4 — Assignment**
+
+Description of the requested work.
+
+This separation avoids systematically repeating the same knowledge in every interaction.
+
+---
+
+# 7. Skills as Fundamental Units
+
+We propose introducing the concept of a **Knowledge Skill**.
+
+A Knowledge Skill is a self-contained unit of knowledge that describes a method for completing a task rather than an expected result.
+
+A skill may include:
+
+* its objective;
+* its prerequisites;
+* its steps;
+* its quality criteria;
+* its checkpoints;
+* its common errors;
+* its dependencies on other skills.
+
+This structure deliberately echoes the concepts of software modules and reusable components.
+
+---
+
+# 8. Knowledge Governance
+
+One direct consequence of this approach concerns governance.
+
+Skills become information assets.
+
+They require:
+
+* version control;
+* scientific or subject-matter validation;
+* traceability of changes;
+* peer review;
+* controlled distribution.
+
+This approach progressively brings knowledge closer to established software development practices.
+
+---
+
+# 9. Research Directions
+
+MuBrain's future work will focus in particular on the following questions.
+
+* How can the effect of knowledge structure on the quality of responses produced by an LLM be measured objectively?
+
+* What criteria can be used to evaluate a skill independently of the model being used?
+
+* Can the same skill be used identically by different assistants (Microsoft 365 Copilot, ChatGPT, Claude, or other agentic systems)?
+
+* What mechanisms can ensure the governance, versioning, and distribution of skills across an organization?
+
+* Is there an optimal level of granularity for a skill that balances reusability, readability, and conversational efficiency?
+
+* To what extent does explicitly structuring skills improve the reproducibility of results across multiple users?
+
+These questions will form the foundation of the experiments published in future work.
 
 ---
 
 # Conclusion
 
-L'émergence des intelligences artificielles génératives ne remet pas uniquement en question les interfaces homme-machine.
+The emergence of generative artificial intelligence challenges more than human-computer interfaces.
 
-Elle interroge la nature même des connaissances que nous produisons.
+It calls into question the very nature of the knowledge we produce.
 
-Si les logiciels ont progressivement conduit à l'apparition de disciplines telles que le Software Engineering ou le Data Engineering, il devient légitime de considérer que les systèmes conversationnels nécessitent désormais leur propre discipline de structuration des connaissances.
+Just as software progressively led to the emergence of disciplines such as Software Engineering and Data Engineering, it is reasonable to consider that conversational systems now require their own discipline for structuring knowledge.
 
-Le Knowledge Engineering, tel qu'il est proposé dans cet article, ne constitue pas une rupture avec les approches historiques de l'ingénierie des connaissances.
+Knowledge Engineering, as proposed in this article, is not a departure from historical approaches to knowledge engineering.
 
-Il en constitue une évolution.
+It is an evolution of them.
 
-Son objet d'étude n'est plus uniquement la représentation des connaissances, mais leur capacité à être comprises, réutilisées, gouvernées et transmises de manière fiable par des intelligences artificielles collaborant avec des êtres humains.
+Its object of study is no longer limited to knowledge representation, but extends to the capacity of knowledge to be reliably understood, reused, governed, and transmitted by artificial intelligence working with humans.
 
-Les travaux présentés ici constituent une première proposition de cadre conceptuel. Leur validation reposera sur des expérimentations reproductibles, des mesures objectives et des comparaisons entre différentes approches de structuration des connaissances. C'est à cette condition que les hypothèses formulées pourront progressivement être confirmées, nuancées ou réfutées, conformément à la démarche scientifique qui guidera les recherches de MuBrain.
+The work presented here is an initial proposal for a conceptual framework. Its validation will rely on reproducible experiments, objective measurements, and comparisons between different approaches to structuring knowledge. Only under these conditions can the hypotheses put forward be progressively confirmed, refined, or refuted, in keeping with the scientific method that will guide MuBrain's research.

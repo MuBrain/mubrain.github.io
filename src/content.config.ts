@@ -22,6 +22,8 @@ const blog = defineCollection({
       translationKey: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
       sourceOfTruth: z.boolean(),
       translationOf: z.string().optional(),
+      translationStatus: z.enum(['draft', 'review', 'validated']).optional(),
+      sourceDigest: z.string().regex(/^sha256:[a-f0-9]{64}$/).optional(),
       okfSource: z.string().startsWith('knowledge/okf/').optional(),
     }).superRefine((data, ctx) => {
       const expectedLanguage = data.locale === 'fr' ? 'fr-CA' : 'en-CA';
@@ -44,6 +46,20 @@ const blog = defineCollection({
           code: 'custom',
           path: ['translationOf'],
           message: 'Une traduction en-CA doit référencer son contenu fr-CA.',
+        });
+      }
+      if (data.locale === 'en' && !data.draft && data.translationStatus !== 'validated') {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['translationStatus'],
+          message: 'Une publication en-CA doit être validée avant sa publication.',
+        });
+      }
+      if (data.locale === 'en' && !data.sourceDigest) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['sourceDigest'],
+          message: 'Une traduction en-CA doit identifier la version fr-CA traduite.',
         });
       }
     }),

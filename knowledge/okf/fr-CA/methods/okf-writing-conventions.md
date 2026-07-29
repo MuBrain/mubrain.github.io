@@ -29,6 +29,12 @@ Toute connaissance structurante doit d’abord être créée, corrigée ou valid
 
 La version `en-CA` est une traduction validée humainement. Elle ne doit pas être considérée comme la source principale, même si elle est publiée ou utilisée par des outils.
 
+Le contenu public Astro demeure dans `src/content`. Lorsqu’une publication
+dérive d’une connaissance OKF, son frontmatter doit déclarer `okfSource`.
+Une traduction publique doit aussi déclarer `translationOf`,
+`translationStatus` et `sourceDigest` afin qu’une modification de la source
+française rende explicitement la traduction à réviser.
+
 ## Emplacement des fichiers
 
 Les fichiers OKF vivent dans le dossier `knowledge/okf`.
