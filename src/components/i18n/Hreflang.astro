@@ -19,7 +19,7 @@
  */
 
 import { getRouteTranslations, resolveRouteFromPath, type RouteId } from '@/i18n/helpers';
-import { defaultLocale } from '@/i18n/config';
+import { defaultLocale, getLocaleCode, type Locale } from '@/i18n/config';
 import siteConfig from '@/config/site.config';
 
 interface Props {
@@ -28,19 +28,29 @@ interface Props {
    * If not provided, attempts to resolve from current URL path.
    */
   routeId?: RouteId;
+  translations?: Array<{ locale: Locale; path: string }>;
 }
 
-const { routeId: propRouteId } = Astro.props;
+const { routeId: propRouteId, translations: propTranslations } = Astro.props;
 
 // Try to resolve routeId from current path if not provided
 let routeId = propRouteId;
+let extraPath: string | undefined;
 if (!routeId) {
   const resolved = resolveRouteFromPath(Astro.url.pathname);
   routeId = resolved?.routeId;
+  extraPath = resolved?.extra;
 }
 
 // Get all translations for this route
-const translations = routeId ? getRouteTranslations(routeId) : [];
+const translations =
+  propTranslations ??
+  (routeId
+    ? getRouteTranslations(routeId).map((translation) => ({
+        ...translation,
+        path: extraPath ? `${translation.path}/${extraPath}` : translation.path,
+      }))
+    : []);
 
 // Find the default locale URL for x-default
 const defaultUrl = translations.find((t) => t.locale === defaultLocale)?.path || '/';
@@ -52,7 +62,7 @@ const defaultUrl = translations.find((t) => t.locale === defaultLocale)?.path ||
       {translations.map(({ locale, path }) => (
         <link
           rel="alternate"
-          hreflang={locale}
+          hreflang={getLocaleCode(locale)}
           href={new URL(path, siteConfig.url).toString()}
         />
       ))}

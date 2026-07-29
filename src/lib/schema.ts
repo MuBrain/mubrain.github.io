@@ -43,7 +43,7 @@ export function createOrganizationSchema(): WithContext<Organization> {
     '@type': 'Organization',
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
+    logo: new URL(siteConfig.branding.favicon.svg, siteConfig.url).toString(),
     sameAs: siteConfig.socialLinks,
     contactPoint: siteConfig.phone
       ? {
@@ -86,7 +86,7 @@ export function createBlogPostSchema(post: {
       name: siteConfig.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.url}/logo.png`,
+        url: new URL(siteConfig.branding.favicon.svg, siteConfig.url).toString(),
       },
     },
     mainEntityOfPage: {

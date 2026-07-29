@@ -33,6 +33,10 @@ export const en = {
     copy: 'Copy',
   },
 
+  accessibility: {
+    skipToContent: 'Skip to content',
+  },
+
   // Hero Section
   hero: {
     badge: 'MuBrain foundation in progress',

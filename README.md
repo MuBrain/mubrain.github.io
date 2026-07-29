@@ -1,120 +1,67 @@
-<p align="center">
-  <img src="src/assets/branding/logo-full.svg" alt="Velocity" width="370" />
-</p>
+# MuBrain
 
-<p align="center">
-  <strong>Astro 6 Boilerplate</strong> — A production-ready starter template built on Astro 6 and Tailwind CSS v4.
-</p>
+Site public bilingue de MuBrain, construit avec Astro et publié sur GitHub Pages.
 
-<p align="center">
-  <a href="https://astro.build"><img src="https://img.shields.io/badge/Astro-6.0-bc52ee?logo=astro&logoColor=white" alt="Astro" /></a>
-  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind-4.0-38bdf8?logo=tailwindcss&logoColor=white" alt="Tailwind CSS" /></a>
-  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.7-3178c6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-22c55e" alt="License" /></a>
-</p>
+- Site actuel : <https://mubrain.github.io>
+- Langue principale et source éditoriale : français canadien (`fr-CA`)
+- Traduction : anglais canadien (`en-CA`)
+- Déploiement : GitHub Actions vers GitHub Pages
 
----
+## Développement
 
-## What's Included
-
-- **57 components** across 7 categories — all accessible, typed, and dark-mode ready
-- **Design token system** with OKLCH colors, fluid typography, and two built-in themes
-- **SEO toolkit** — meta tags, JSON-LD, sitemap, robots.txt, and auto-generated OG images
-- **Content collections** — type-safe blog, pages, authors, and FAQs with Zod validation
-- **API routes** — contact form and newsletter endpoints with validation
-- **React islands** — optional client-side interactivity where needed
-- **i18n-ready** — locale-aware schemas; full i18n via the [CLI](https://github.com/southwellmedia/create-velocity-astro)
-
----
-
-## Quick Start
+Node.js 22.12 ou plus récent et Corepack sont requis.
 
 ```bash
-# Clone
-git clone https://github.com/southwellmedia/velocity.git my-project
-cd my-project
-
-# Install (requires Node 22.12+)
-pnpm install
-
-# Configure
-cp .env.example .env
-
-# Develop
+corepack enable
+pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Or use the CLI for the full experience including i18n:
+La validation complète s’exécute avec :
 
 ```bash
-pnpm create velocity-astro my-project
+pnpm validate
 ```
 
----
+## Organisation du contenu
 
-## Commands
+Le dépôt sépare strictement les deux couches suivantes :
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start dev server |
-| `pnpm build` | Production build |
-| `pnpm preview` | Preview production build |
-| `pnpm check` | Astro type checker |
-| `pnpm lint` | ESLint |
-| `pnpm format` | Prettier |
-| `pnpm test` | Vitest |
-| `pnpm test:e2e` | Playwright E2E |
-
----
-
-## Project Structure
-
-```
-src/
-  components/
-    ui/           # 31 UI components (form, data-display, feedback, overlay, etc.)
-    patterns/     # 7 composed patterns (ContactForm, SearchInput, StatCard, etc.)
-    layout/       # Header, Footer, ThemeToggle, Analytics
-    blog/         # ArticleHero, BlogCard, ShareButtons, RelatedPosts
-    landing/      # Credibility, TechStack, FeatureTabs, and more
-    seo/          # SEO, JsonLd, Breadcrumbs
-  content/        # Blog posts, authors, FAQs
-  config/         # Site and navigation config
-  styles/         # Global CSS and design tokens
-  pages/          # Routes, API endpoints, OG image generation
+```text
+src/content/             Contenu public chargé et publié par Astro
+knowledge/okf/fr-CA/     Base de connaissance de référence
+knowledge/okf/en-CA/     Traductions validées de la base OKF
 ```
 
----
+Astro ne charge pas directement `knowledge/`. Un contenu public peut déclarer un
+`okfSource` dans son frontmatter afin de conserver une provenance explicite sans
+publier automatiquement la base interne.
 
-## Configuration
+Les articles utilisent aussi :
 
-**Site config**: `src/config/site.config.ts` — name, description, URL, social links
+- `language` : code BCP 47 (`fr-CA` ou `en-CA`);
+- `translationKey` : identifiant stable partagé entre les langues;
+- `sourceOfTruth` : `true` uniquement pour le français canadien;
+- `translationOf` : référence au contenu français pour une traduction anglaise.
 
-**Design tokens**: `src/styles/tokens/` — colors, typography, spacing
+Ces règles sont validées par `src/content.config.ts` pendant la construction.
 
-**Themes**: `src/styles/themes/` — switch between `default` and `midnight`, or create your own
+## Internationalisation
 
-**Environment**: `.env` — see `.env.example` for available variables
+Le français canadien est servi sans préfixe (`/`, `/blog/`, `/about/`). L’anglais
+canadien utilise le préfixe `/en/`. Les métadonnées HTML, Open Graph, sitemap et
+`hreflang` emploient les codes régionaux `fr-CA` et `en-CA`.
 
-View all components at `/components` in development.
+## Publication
 
----
+Le workflow `.github/workflows/deploy.yml` construit `main` et publie l’artefact
+sur GitHub Pages avec `SITE_URL=https://mubrain.github.io`.
+GitHub Pages étant un hébergement statique, aucun formulaire ne doit cibler une
+route serveur locale; un futur formulaire devra utiliser un service externe.
 
-## Contributing
+Pour passer plus tard à `mubrain.com` :
 
-1. Fork the repo
-2. Create a feature branch
-3. Ensure `pnpm lint` and `pnpm check` pass
-4. Open a PR
-
----
-
-## License
-
-MIT — see [LICENSE](LICENSE) for details.
-
----
-
-**Links**: [Docs](https://github.com/southwellmedia/velocity-docs) | [CLI](https://github.com/southwellmedia/create-velocity-astro) | [Astro](https://docs.astro.build) | [Tailwind v4](https://tailwindcss.com/docs)
-
-**Built by [Southwell Media](https://southwellmedia.com)**
+1. configurer le domaine personnalisé dans GitHub Pages;
+2. ajouter le fichier `public/CNAME`;
+3. remplacer `SITE_URL` dans le workflow et dans `.env.example`;
+4. configurer les enregistrements DNS recommandés par GitHub.

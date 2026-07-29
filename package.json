@@ -1,9 +1,10 @@
 {
   "name": "mubrain-github-io",
   "version": "0.1.0",
-  "description": "Southwell Astro Boilerplate - A production-ready starter template built on Astro 6 and Tailwind CSS v4",
+  "description": "Site bilingue FR-CA/EN-CA et base de connaissance structurée de MuBrain",
   "type": "module",
-  "author": "Southwell Media",
+  "packageManager": "pnpm@10.15.1",
+  "author": "MuBrain",
   "license": "MIT",
   "keywords": [
     "astro",
@@ -13,9 +14,9 @@
     "tailwindcss",
     "typescript",
     "blog",
-    "starter",
-    "boilerplate",
-    "seo"
+    "knowledge",
+    "okf",
+    "bilingual"
   ],
   "scripts": {
     "dev": "astro dev",

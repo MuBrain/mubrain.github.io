@@ -35,3 +35,30 @@ Le contenu public Astro vit dans :
 
 ```text
 src/content/
+```
+
+La base de connaissance de référence vit dans :
+
+```text
+knowledge/okf/
+```
+
+Astro ne publie pas automatiquement le dossier `knowledge/`. Un article public
+peut plutôt utiliser `okfSource` pour déclarer le fichier OKF qui l’a inspiré.
+
+## Conventions de publication
+
+- Les routes françaises n’ont pas de préfixe.
+- Les routes anglaises utilisent `/en/`.
+- Les métadonnées linguistiques utilisent `fr-CA` et `en-CA`.
+- Chaque article possède un `translationKey` stable dans les deux langues.
+- `sourceOfTruth` vaut `true` uniquement pour le contenu français canadien.
+- Une traduction anglaise déclare son origine avec `translationOf`.
+- Une traduction incomplète reste en brouillon et n’est ni publiée ni annoncée
+  dans les liens `hreflang`.
+
+## Hébergement
+
+Le site reste publié à `https://mubrain.github.io` jusqu’à la configuration du
+domaine `mubrain.com`. GitHub Pages étant statique, les formulaires devront
+utiliser un service externe plutôt qu’une route API Astro.

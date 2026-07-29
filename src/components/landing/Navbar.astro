@@ -22,7 +22,7 @@ const locale = localeProp || getLocaleFromPath(Astro.url.pathname);
 const t = useTranslations(locale);
 
 // Get navigation routes dynamically from i18n routes
-const navRoutes = getNavRoutes();
+const navRoutes = getNavRoutes(locale);
 
 // Check if we're on the landing page to determine link behavior
 const currentPath = Astro.url.pathname;
@@ -67,7 +67,7 @@ const ctaLink = isLandingPage ? '#cta' : `${homePath}#cta`;
         >
           <Icon name="github" size="sm" />
         </Button>
-        <Button size="sm" href="/blog/">{t('nav.cta')}</Button>
+        <Button size="sm" href={getLocalizedPath('blog', locale)}>{t('nav.cta')}</Button>
       </div>
     </div>
 

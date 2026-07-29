@@ -8,6 +8,7 @@ import ShareButtons from '@/components/blog/ShareButtons.astro';
 import RelatedPosts from '@/components/blog/RelatedPosts.astro';
 import { defaultLocale, type Locale } from '@/i18n/config';
 import { useTranslations } from '@/i18n/index';
+import { getCollection } from 'astro:content';
 
 interface Props {
   title: string;
@@ -20,6 +21,7 @@ interface Props {
   tags?: string[];
   slug?: string;
   locale?: Locale;
+  translationKey: string;
 }
 
 const {
@@ -33,10 +35,10 @@ const {
   tags = [],
   slug = '',
   locale = defaultLocale,
+  translationKey,
 } = Astro.props;
 
 const t = useTranslations(locale);
-const ogImage = image || `/og${Astro.url.pathname}.png`;
 
 // Build breadcrumbs with locale-aware URLs
 const blogUrl = locale === defaultLocale ? '/blog' : `/${locale}/blog`;
@@ -50,12 +52,30 @@ const breadcrumbs = [
 
 // Get full URL for sharing
 const fullUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+const translatedPosts = await getCollection(
+  'blog',
+  ({ data }) =>
+    data.translationKey === translationKey &&
+    (import.meta.env.PROD ? data.draft !== true : true)
+);
+const hreflangTranslations = translatedPosts.map((post) => {
+  const postLocale = post.data.locale;
+  const postSlug = post.id.replace(`${postLocale}/`, '');
+  return {
+    locale: postLocale,
+    path:
+      postLocale === defaultLocale
+        ? `/blog/${postSlug}`
+        : `/${postLocale}/blog/${postSlug}`,
+  };
+});
 ---
 
 <BaseLayout
   title={title}
   description={description}
-  image={ogImage}
+  image={image}
   imageAlt={imageAlt || title}
   lang={locale}
   article={{
@@ -64,8 +84,9 @@ const fullUrl = new URL(Astro.url.pathname, Astro.site).toString();
     authors: [author],
     tags,
   }}
+  hreflangTranslations={hreflangTranslations}
 >
-  <Navbar slot="header" />
+  <Navbar slot="header" locale={locale} />
 
   <!-- Article Hero -->
   <ArticleHero
@@ -129,5 +150,5 @@ const fullUrl = new URL(Astro.url.pathname, Astro.site).toString();
     </div>
   )}
 
-  <LandingFooter slot="footer" />
+  <LandingFooter slot="footer" locale={locale} />
 </BaseLayout>

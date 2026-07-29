@@ -4,7 +4,6 @@ export interface SiteConfig {
   name: string;
   description: string;
   url: string;
-  ogImage: string;
   author: string;
   email: string;
   phone?: string;
@@ -52,7 +51,6 @@ const siteConfig: SiteConfig = {
   name: 'MuBrain',
   description: 'MuBrain est un espace de réflexion, de publication et de structuration de la connaissance autour de l’intelligence artificielle, des agents et des organisations apprenantes.',
   url: SITE_URL || 'https://mubrain.github.io',
-  ogImage: '/og-default.png',
   author: 'MuBrain',
   email: 'contact@mubrain.com',
   phone: '',
