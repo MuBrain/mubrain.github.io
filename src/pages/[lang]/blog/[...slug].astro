@@ -50,6 +50,7 @@ const { Content } = await render(post);
   tags={post.data.tags}
   slug={post.id}
   locale={locale}
+  translationKey={post.data.translationKey}
 >
   <Content />
 </BlogLayout>

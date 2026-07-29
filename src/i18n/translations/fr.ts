@@ -35,6 +35,10 @@ export const fr: TranslationKeys = {
     copy: 'Copier',
   },
 
+  accessibility: {
+    skipToContent: 'Aller au contenu',
+  },
+
   // Hero Section
   hero: {
     badge: 'Base MuBrain en construction',

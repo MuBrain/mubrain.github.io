@@ -27,18 +27,6 @@ export default defineConfig({
         optional: true,
       }),
 
-      CONTACT_FORM_ENDPOINT: envField.string({
-        context: 'server',
-        access: 'secret',
-        optional: true,
-      }),
-
-      NEWSLETTER_API_KEY: envField.string({
-        context: 'server',
-        access: 'secret',
-        optional: true,
-      }),
-
       GOOGLE_SITE_VERIFICATION: envField.string({
         context: 'server',
         access: 'public',
@@ -77,7 +65,10 @@ export default defineConfig({
   // i18n configuration
   i18n: {
     defaultLocale: 'fr',
-    locales: ['fr', 'en'],
+    locales: [
+      { path: 'fr', codes: ['fr', 'fr-CA'] },
+      { path: 'en', codes: ['en', 'en-CA'] },
+    ],
     routing: {
       prefixDefaultLocale: false,
     },

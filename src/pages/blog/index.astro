@@ -3,7 +3,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Navbar from '@/components/landing/Navbar.astro';
 import LandingFooter from '@/components/landing/LandingFooter.astro';
 import BlogCard from '@/components/blog/BlogCard.astro';
-import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import { getCollection } from 'astro:content';
 import { defaultLocale } from '@/i18n/config';
@@ -128,31 +127,6 @@ const getPostUrl = (postId: string) => {
           <p class="text-foreground-muted text-lg">{t('blog.noPosts')}</p>
         </div>
       ) : null}
-    </div>
-  </section>
-
-  <!-- Newsletter CTA Section -->
-  <section class="py-20 bg-surface-invert text-on-invert">
-    <div class="mx-auto max-w-3xl px-6 text-center">
-      <h2 class="font-display text-3xl font-bold mb-4">
-        {t('blog.subscribe')}
-      </h2>
-      <p class="text-on-invert-secondary text-lg mb-8">
-        {t('blog.subscribeDescription')}
-      </p>
-
-      <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-        <input
-          type="email"
-          placeholder={t('blog.emailPlaceholder')}
-          class="flex-1 h-12 px-4 rounded-md bg-surface-invert-secondary border border-border-invert text-on-invert placeholder:text-on-invert-muted focus:outline-none focus:ring-2 focus:ring-brand-500"
-          required
-        />
-        <Button variant="primary" size="lg" type="submit">
-          {t('blog.subscribeButton')}
-          <Icon name="arrow-right" size="sm" />
-        </Button>
-      </form>
     </div>
   </section>
 

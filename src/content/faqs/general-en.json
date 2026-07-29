@@ -1,6 +1,6 @@
 {
-  "question": "What is Velocity?",
-  "answer": "Velocity is a production-ready starter template built on Astro 6 and Tailwind CSS v4. It includes everything you need to build fast, beautiful, and accessible websites.",
+  "question": "What is MuBrain?",
+  "answer": "MuBrain is a bilingual website and structured knowledge initiative focused on artificial intelligence, agents, doc-as-code, and learning organizations.",
   "category": "general",
   "order": 1,
   "locale": "en"

@@ -18,6 +18,34 @@ const blog = defineCollection({
       draft: z.boolean().default(false),
       featured: z.boolean().default(false),
       locale: z.enum(['fr', 'en']).default('fr'),
+      language: z.enum(['fr-CA', 'en-CA']),
+      translationKey: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+      sourceOfTruth: z.boolean(),
+      translationOf: z.string().optional(),
+      okfSource: z.string().startsWith('knowledge/okf/').optional(),
+    }).superRefine((data, ctx) => {
+      const expectedLanguage = data.locale === 'fr' ? 'fr-CA' : 'en-CA';
+      if (data.language !== expectedLanguage) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['language'],
+          message: `La locale ${data.locale} doit utiliser ${expectedLanguage}.`,
+        });
+      }
+      if (data.sourceOfTruth !== (data.locale === 'fr')) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['sourceOfTruth'],
+          message: 'Seul le contenu fr-CA peut être une source de vérité.',
+        });
+      }
+      if (data.locale === 'en' && !data.translationOf) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['translationOf'],
+          message: 'Une traduction en-CA doit référencer son contenu fr-CA.',
+        });
+      }
     }),
 });
 

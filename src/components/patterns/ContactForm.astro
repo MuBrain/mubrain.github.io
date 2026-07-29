@@ -5,13 +5,13 @@ import Button from '@/components/ui/form/Button/Button.astro';
 import { cn } from '@/lib/cn';
 
 interface Props {
-  action?: string;
+  action: string;
   successMessage?: string;
   class?: string;
 }
 
 const {
-  action = '/api/contact',
+  action,
   successMessage = 'Message sent successfully!',
   class: className,
 } = Astro.props;

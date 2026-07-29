@@ -8,6 +8,11 @@ export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = 'fr';
 
+export const localeCodes: Record<Locale, 'fr-CA' | 'en-CA'> = {
+  fr: 'fr-CA',
+  en: 'en-CA',
+};
+
 export const localeNames: Record<Locale, string> = {
   fr: 'Français (Canada)',
   en: 'English (Canada)',
@@ -17,6 +22,10 @@ export const localeFlags: Record<Locale, string> = {
   fr: '🇨🇦',
   en: '🇨🇦',
 };
+
+export function getLocaleCode(locale: Locale): 'fr-CA' | 'en-CA' {
+  return localeCodes[locale];
+}
 
 /**
  * Check if a string is a valid locale
