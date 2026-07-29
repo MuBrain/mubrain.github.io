@@ -11,6 +11,8 @@ Allow: /
 Disallow: /api/
 
 Sitemap: ${siteUrl}sitemap-index.xml
+
+# LLM context: ${siteUrl}llms.txt
 `.trim();
 
   return new Response(robotsTxt, {
