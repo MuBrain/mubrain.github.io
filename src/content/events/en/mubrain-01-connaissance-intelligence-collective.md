@@ -7,6 +7,7 @@ timezone: "America/Toronto"
 venue: "AFI Expertise — 500 Saint-Jacques Street, Suite 500, H2Y 1S1"
 city: "Montreal"
 online: false
+dateStatus: "confirmed"
 tags:
   - collective-intelligence
   - enterprise-brain
