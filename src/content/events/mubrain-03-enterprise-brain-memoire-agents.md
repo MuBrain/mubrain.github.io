@@ -1,8 +1,8 @@
 ---
 title: "MuBrain #3 — Enterprise Brain : mémoire, agents et capacité d’action"
 description: "Une rencontre pour dépasser la métaphore du cerveau documentaire et réfléchir à une architecture organisationnelle qui apprend et agit."
-startsAt: 2027-03-17T17:30:00-04:00
-endsAt: 2027-03-17T19:30:00-04:00
+startsAt: 2027-03-24T17:00:00-04:00
+endsAt: 2027-03-24T19:00:00-04:00
 timezone: "America/Toronto"
 venue: "Lieu à confirmer"
 city: "Montréal"
@@ -11,6 +11,7 @@ tags:
   - enterprise-brain
   - agents
   - memoire-organisationnelle
+  - 5a7
 draft: true
 locale: fr
 language: fr-CA
@@ -26,6 +27,8 @@ Un cerveau ne se contente pas de stocker de l’information. Il crée des liens,
 Si nous prenons cette métaphore au sérieux, alors l’arrivée des agents IA change profondément la manière dont nous pouvons penser l’intelligence organisationnelle.
 
 Cette troisième rencontre MuBrain sera consacrée à l’architecture d’un Enterprise Brain : **quelles briques permettent de passer d’une mémoire disponible à une capacité organisationnelle à raisonner et agir ?**
+
+La rencontre se déroulera en **5@7, 100 % en présentiel**, avec une introduction courte suivie d’une discussion structurée.
 
 ### Questions proposées
 
