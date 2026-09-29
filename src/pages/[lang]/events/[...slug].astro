@@ -1,0 +1,105 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '@/layouts/PageLayout.astro';
+import { locales, defaultLocale, isValidLocale, type Locale } from '@/i18n/config';
+
+export async function getStaticPaths() {
+  const events = (await getCollection('events')).filter(
+    (event) => !event.data.draft && event.data.locale !== defaultLocale,
+  );
+
+  return events.flatMap((event) => {
+    const locale = event.data.locale as Locale;
+    if (!locales.includes(locale) || locale === defaultLocale) return [];
+    const slug = event.id.replace(`${locale}/`, '');
+    return [{
+      params: { lang: locale, slug },
+      props: { event },
+    }];
+  });
+}
+
+const { lang } = Astro.params;
+if (!lang || !isValidLocale(lang)) {
+  return Astro.redirect('/events');
+}
+
+const locale = lang as Locale;
+const { event } = Astro.props;
+const { Content } = await render(event);
+
+const formatter = new Intl.DateTimeFormat('en-CA', {
+  dateStyle: 'long',
+  timeStyle: 'short',
+  timeZone: event.data.timezone,
+});
+---
+
+<PageLayout title={event.data.title} description={event.data.description} lang={locale} routeId="events">
+  <section class="border-b border-border bg-secondary py-16">
+    <div class="container max-w-4xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">MuBrain Meetup</p>
+      <h1 class="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        {event.data.title}
+      </h1>
+      <p class="mt-6 text-xl leading-8 text-foreground-muted">{event.data.description}</p>
+      {event.data.dateStatus === 'tentative' && (
+        <p class="mt-4 inline-flex rounded-full border border-border px-3 py-1 text-sm font-semibold text-foreground-muted">
+          Date to be confirmed
+        </p>
+      )}
+
+      <dl class="mt-8 grid gap-4 rounded-2xl border border-border bg-background p-6 sm:grid-cols-2">
+        <div>
+          <dt class="text-sm font-semibold text-foreground">Starts</dt>
+          <dd class="mt-1 text-foreground-muted">{formatter.format(event.data.startsAt)}</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-foreground">Ends</dt>
+          <dd class="mt-1 text-foreground-muted">{formatter.format(event.data.endsAt)}</dd>
+        </div>
+        {(event.data.venue || event.data.city) && (
+          <div>
+            <dt class="text-sm font-semibold text-foreground">Location</dt>
+            <dd class="mt-1 text-foreground-muted">
+              {[event.data.venue, event.data.city].filter(Boolean).join(' · ')}
+            </dd>
+          </div>
+        )}
+        <div>
+          <dt class="text-sm font-semibold text-foreground">Format</dt>
+          <dd class="mt-1 text-foreground-muted">
+            {event.data.online ? 'Hybrid / online' : 'In person'}
+          </dd>
+        </div>
+      </dl>
+
+      {(event.data.registrationUrl || event.data.linkedinEventUrl) && (
+        <div class="mt-8 flex flex-wrap gap-4">
+          {event.data.registrationUrl && (
+            <a
+              href={event.data.registrationUrl}
+              class="rounded-lg bg-brand-600 px-5 py-3 font-semibold text-white hover:bg-brand-700"
+            >
+              Register
+            </a>
+          )}
+          {event.data.linkedinEventUrl && (
+            <a
+              href={event.data.linkedinEventUrl}
+              class="rounded-lg border border-border px-5 py-3 font-semibold text-foreground hover:bg-background-subtle"
+            >
+              View LinkedIn event
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container max-w-3xl prose prose-lg dark:prose-invert">
+      <Content />
+    </div>
+  </section>
+</PageLayout>
