@@ -7,12 +7,13 @@ timezone: "America/Toronto"
 venue: "Venue to be confirmed"
 city: "Montreal"
 online: false
+dateStatus: "tentative"
 tags:
   - enterprise-brain
   - agents
   - organizational-memory
   - 5a7
-draft: true
+draft: false
 locale: en
 language: en-CA
 translationKey: mubrain-03-enterprise-brain-memoire-agents
