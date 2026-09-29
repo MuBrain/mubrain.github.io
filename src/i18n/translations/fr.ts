@@ -16,6 +16,7 @@ export const fr: TranslationKeys = {
     home: 'Accueil',
     about: 'À propos',
     blog: 'Blog',
+    events: 'Évènements',
     contact: 'Contact',
     features: 'Axes',
     components: 'Composants',
