@@ -14,6 +14,7 @@ export const en = {
     home: 'Home',
     about: 'About',
     blog: 'Blog',
+    events: 'Events',
     contact: 'Contact',
     features: 'Focus areas',
     components: 'Components',
