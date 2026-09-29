@@ -66,3 +66,41 @@ utiliser un service externe plutôt qu’une route API Astro.
 Le fichier public `/llms.txt` est généré par Astro à chaque construction. Il
 fournit aux agents IA un aperçu concis du site et des liens vers les contenus
 publiés, conformément à la proposition de format de `llmstxt.org`.
+
+## Gestion des évènements
+
+Les rencontres MuBrain sont gérées comme une collection Astro dédiée et comme des fiches OKF de référence.
+
+Le contenu public vit dans :
+
+```text
+src/content/events/
+```
+
+La source de vérité de chaque rencontre vit dans :
+
+```text
+knowledge/okf/fr-CA/events/
+```
+
+Chaque évènement public référence sa fiche OKF avec `okfSource`.
+
+Les routes publiques sont :
+
+```text
+/events/
+/events/<slug>/
+```
+
+Les évènements peuvent être préparés en avance avec `draft: true`. Ils ne sont alors pas affichés sur le site public, ce qui permet de préparer les descriptions, les dates proposées et les liens LinkedIn avant validation.
+
+Les fiches OKF conservent notamment :
+
+- l’intention de la rencontre ;
+- les questions de travail ;
+- le format ;
+- la description LinkedIn ;
+- les liens d’inscription et LinkedIn ;
+- les éléments de suivi et les publications pouvant découler de la rencontre.
+
+Le modèle de référence est `knowledge/okf/templates/fr-CA/event.template.md`.

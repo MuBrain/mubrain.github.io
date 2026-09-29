@@ -53,17 +53,23 @@ export const routes = {
   // Static pages
   about: {
     fr: 'about', en: 'about',
-    nav: { show: true, order: 3, label: 'nav.about' },
+    nav: { show: true, order: 4, label: 'nav.about' },
   },
   contact: {
     fr: 'contact', en: 'contact',
-    nav: { show: true, order: 4, label: 'nav.contact' },
+    nav: { show: true, order: 5, label: 'nav.contact' },
   },
 
   // Blog section
   blog: {
     fr: 'blog', en: 'blog',
     nav: { show: true, order: 2, label: 'nav.blog' },
+  },
+
+  // Events section
+  events: {
+    fr: 'events', en: 'events',
+    nav: { show: true, order: 3, label: 'nav.events' },
   },
 
    // Custom page: faq

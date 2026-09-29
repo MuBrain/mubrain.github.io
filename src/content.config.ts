@@ -65,6 +65,46 @@ const blog = defineCollection({
     }),
 });
 
+// Events collection
+const events = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/events' }),
+  schema: z.object({
+    title: z.string().max(140),
+    description: z.string().max(320),
+    startsAt: z.coerce.date(),
+    endsAt: z.coerce.date(),
+    timezone: z.string().default('America/Toronto'),
+    venue: z.string().optional(),
+    city: z.string().optional(),
+    online: z.boolean().default(false),
+    registrationUrl: z.string().url().optional(),
+    linkedinEventUrl: z.string().url().optional(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(true),
+    locale: z.enum(['fr', 'en']).default('fr'),
+    language: z.enum(['fr-CA', 'en-CA']).default('fr-CA'),
+    translationKey: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    sourceOfTruth: z.boolean().default(true),
+    okfSource: z.string().startsWith('knowledge/okf/'),
+  }).superRefine((data, ctx) => {
+    if (data.endsAt <= data.startsAt) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['endsAt'],
+        message: 'La fin de l’évènement doit être postérieure au début.',
+      });
+    }
+    const expectedLanguage = data.locale === 'fr' ? 'fr-CA' : 'en-CA';
+    if (data.language !== expectedLanguage) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['language'],
+        message: `La locale ${data.locale} doit utiliser ${expectedLanguage}.`,
+      });
+    }
+  }),
+});
+
 // Pages collection for static pages
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pages' }),
@@ -108,6 +148,7 @@ const faqs = defineCollection({
 
 export const collections = {
   blog,
+  events,
   pages,
   authors,
   faqs,
