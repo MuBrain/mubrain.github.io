@@ -10,7 +10,7 @@
  */
 import siteConfig from '@/config/site.config';
 
-import logomark from '@/assets/branding/logomark.svg';
+import logomark from '@/assets/branding/mubrainlogo-clair.svg';
 import logomarkDark from '@/assets/branding/logomark-dark.svg';
 import logoFull from '@/assets/branding/logo-full.svg';
 import logoFullDark from '@/assets/branding/logo-full-dark.svg';
@@ -37,11 +37,11 @@ const lightLogo = variant === 'full' ? logoFull : logomark;
 const darkLogo = variant === 'full' ? logoFullDark : logomarkDark;
 
 const sizeClasses: Record<string, string> = {
-  sm: 'h-5 w-5',
-  md: 'h-6 w-6',
-  lg: 'h-8 w-8',
-  xl: 'h-12 w-12',
-  '2xl': 'h-24 w-24',
+  sm: 'h-9 w-auto',
+  md: 'h-10 w-auto',
+  lg: 'h-12 w-auto',
+  xl: 'h-16 w-auto',
+  '2xl': 'h-24 w-auto',
 };
 
 const sizeClass = sizeClasses[size] || sizeClasses.md;
