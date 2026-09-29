@@ -80,7 +80,7 @@ const siteConfig: SiteConfig = {
       alt: 'MuBrain',
     },
     favicon: {
-      svg: '/favicon.svg',
+      svg: '/favicon-2026.svg',
     },
     colors: {
       themeColor: '#F94C10',
