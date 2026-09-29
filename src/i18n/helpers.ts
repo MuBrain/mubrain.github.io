@@ -26,6 +26,15 @@ import { routes, type RouteId, isValidRouteId } from './routes';
  */
 export function getLocalizedPath(routeId: RouteId, locale: Locale): string {
   const route = routes[routeId];
+
+  // Defensive fallback: an unknown route must never break static prerendering.
+  // This can happen when a page starts using a new routeId before routes.ts
+  // has been updated.
+  if (!route) {
+    console.warn(`[i18n] Unknown routeId "${routeId}". Falling back to localized home.`);
+    return locale === defaultLocale ? '/' : `/${locale}`;
+  }
+
   const slug = route[locale];
 
   // For default locale, no prefix needed
