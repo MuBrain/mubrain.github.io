@@ -1,0 +1,88 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '@/layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+  const events = (await getCollection('events')).filter(
+    (event) => !event.data.draft && event.data.locale === 'fr',
+  );
+
+  return events.map((event) => ({
+    params: { slug: event.id },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const { Content } = await render(event);
+
+const formatter = new Intl.DateTimeFormat('fr-CA', {
+  dateStyle: 'long',
+  timeStyle: 'short',
+  timeZone: event.data.timezone,
+});
+---
+
+<PageLayout title={event.data.title} description={event.data.description} routeId="events">
+  <section class="border-b border-border bg-secondary py-16">
+    <div class="container max-w-4xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">Rencontre MuBrain</p>
+      <h1 class="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        {event.data.title}
+      </h1>
+      <p class="mt-6 text-xl leading-8 text-foreground-muted">{event.data.description}</p>
+
+      <dl class="mt-8 grid gap-4 rounded-2xl border border-border bg-background p-6 sm:grid-cols-2">
+        <div>
+          <dt class="text-sm font-semibold text-foreground">Début</dt>
+          <dd class="mt-1 text-foreground-muted">{formatter.format(event.data.startsAt)}</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-foreground">Fin</dt>
+          <dd class="mt-1 text-foreground-muted">{formatter.format(event.data.endsAt)}</dd>
+        </div>
+        {(event.data.venue || event.data.city) && (
+          <div>
+            <dt class="text-sm font-semibold text-foreground">Lieu</dt>
+            <dd class="mt-1 text-foreground-muted">
+              {[event.data.venue, event.data.city].filter(Boolean).join(' · ')}
+            </dd>
+          </div>
+        )}
+        <div>
+          <dt class="text-sm font-semibold text-foreground">Format</dt>
+          <dd class="mt-1 text-foreground-muted">
+            {event.data.online ? 'Hybride / en ligne' : 'Présentiel'}
+          </dd>
+        </div>
+      </dl>
+
+      {(event.data.registrationUrl || event.data.linkedinEventUrl) && (
+        <div class="mt-8 flex flex-wrap gap-4">
+          {event.data.registrationUrl && (
+            <a
+              href={event.data.registrationUrl}
+              class="rounded-lg bg-brand-600 px-5 py-3 font-semibold text-white hover:bg-brand-700"
+            >
+              S’inscrire
+            </a>
+          )}
+          {event.data.linkedinEventUrl && (
+            <a
+              href={event.data.linkedinEventUrl}
+              class="rounded-lg border border-border px-5 py-3 font-semibold text-foreground hover:bg-background-subtle"
+            >
+              Voir l’évènement LinkedIn
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container max-w-3xl prose prose-lg dark:prose-invert">
+      <Content />
+    </div>
+  </section>
+</PageLayout>
