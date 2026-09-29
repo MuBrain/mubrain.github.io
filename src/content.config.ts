@@ -79,6 +79,7 @@ const events = defineCollection({
     online: z.boolean().default(false),
     registrationUrl: z.string().url().optional(),
     linkedinEventUrl: z.string().url().optional(),
+    dateStatus: z.enum(['confirmed', 'tentative']).default('tentative'),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(true),
     locale: z.enum(['fr', 'en']).default('fr'),
