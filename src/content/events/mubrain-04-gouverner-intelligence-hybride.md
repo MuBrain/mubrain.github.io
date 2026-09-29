@@ -7,13 +7,14 @@ timezone: "America/Toronto"
 venue: "Lieu à confirmer"
 city: "Montréal"
 online: false
+dateStatus: "tentative"
 tags:
   - gouvernance
   - intelligence-hybride
   - agents
   - enterprise-brain
   - 5a7
-draft: true
+draft: false
 locale: fr
 language: fr-CA
 translationKey: mubrain-04-gouverner-intelligence-hybride
