@@ -1,17 +1,18 @@
 ---
 title: "MuBrain #1 — De la connaissance à l’intelligence collective"
 description: "Une première rencontre pour distinguer information, connaissance et intelligence collective, et poser les bases de l’Enterprise Brain."
-startsAt: 2026-11-18T17:30:00-05:00
-endsAt: 2026-11-18T19:30:00-05:00
+startsAt: 2026-11-04T17:00:00-05:00
+endsAt: 2026-11-04T19:00:00-05:00
 timezone: "America/Toronto"
-venue: "Lieu à confirmer"
+venue: "AFI Expertise — 500, rue Saint-Jacques, #500, H2Y 1S1"
 city: "Montréal"
 online: false
 tags:
   - intelligence-collective
   - enterprise-brain
   - knowledge
-draft: true
+  - 5a7
+draft: false
 locale: fr
 language: fr-CA
 translationKey: mubrain-01-connaissance-intelligence-collective
@@ -25,7 +26,7 @@ Cette première rencontre MuBrain part de cette distinction fondamentale : **dis
 
 Nous travaillerons ensemble sur ce qui permet à une organisation de transformer ses actifs informationnels, l’expérience de ses membres, ses décisions et désormais ses agents IA en une capacité collective à comprendre, apprendre, décider et agir.
 
-La rencontre ne prendra pas la forme d’une conférence classique. Quelques propositions serviront de point de départ, mais l’essentiel sera consacré à la discussion, à la contradiction et à la construction collective.
+La rencontre prendra la forme d’un **5@7 MuBrain**, 100 % en présentiel. Quelques propositions serviront de point de départ, mais l’essentiel sera consacré à la discussion, à la contradiction et à la construction collective.
 
 ### Questions proposées
 
