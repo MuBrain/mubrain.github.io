@@ -7,12 +7,13 @@ timezone: "America/Toronto"
 venue: "Lieu à confirmer"
 city: "Montréal"
 online: false
+dateStatus: "tentative"
 tags:
   - intelligence-individuelle
   - intelligence-collective
   - gouvernance
   - 5a7
-draft: true
+draft: false
 locale: fr
 language: fr-CA
 translationKey: mubrain-02-frontieres-intelligence-organisationnelle
