@@ -1,7 +1,5 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import Navbar from '@/components/landing/Navbar.astro';
-import LandingFooter from '@/components/landing/LandingFooter.astro';
+import LandingLayout from './LandingLayout.astro';
 import Breadcrumbs from '@/components/seo/Breadcrumbs.astro';
 import ArticleHero from '@/components/blog/ArticleHero.astro';
 import ShareButtons from '@/components/blog/ShareButtons.astro';
@@ -72,7 +70,7 @@ const hreflangTranslations = translatedPosts.map((post) => {
 });
 ---
 
-<BaseLayout
+<LandingLayout
   title={title}
   description={description}
   image={image}
@@ -86,7 +84,6 @@ const hreflangTranslations = translatedPosts.map((post) => {
   }}
   hreflangTranslations={hreflangTranslations}
 >
-  <Navbar slot="header" locale={locale} />
 
   <!-- Article Hero -->
   <ArticleHero
@@ -150,5 +147,4 @@ const hreflangTranslations = translatedPosts.map((post) => {
     </div>
   )}
 
-  <LandingFooter slot="footer" locale={locale} />
-</BaseLayout>
+</LandingLayout>
