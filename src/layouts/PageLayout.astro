@@ -1,16 +1,10 @@
 ---
 /**
- * PageLayout (i18n-aware)
- * Shared shell for standard MuBrain pages.
- *
- * Uses the same Navbar + LandingFooter model as the home page and blog
- * so navigation, spacing, responsive behaviour, theme controls, and language
- * switching remain visually consistent across the entire site.
+ * PageLayout is intentionally only a semantic alias of LandingLayout.
+ * This guarantees the exact same Navbar and LandingFooter as the home page.
  */
-import BaseLayout from './BaseLayout.astro';
-import Navbar from '@/components/landing/Navbar.astro';
-import LandingFooter from '@/components/landing/LandingFooter.astro';
-import { type Locale, defaultLocale } from '@/i18n/config';
+import LandingLayout from './LandingLayout.astro';
+import type { Locale } from '@/i18n/config';
 import type { RouteId } from '@/i18n/routes';
 
 interface Props {
@@ -22,39 +16,12 @@ interface Props {
   nofollow?: boolean;
   includeOrgSchema?: boolean;
   lang?: Locale;
-  /**
-   * Route ID for generating proper hreflang tags with translated URLs.
-   */
   routeId?: RouteId;
 }
 
-const {
-  title,
-  description,
-  image,
-  imageAlt,
-  noindex = false,
-  nofollow = false,
-  includeOrgSchema = false,
-  lang = defaultLocale,
-  routeId,
-} = Astro.props;
+const props = Astro.props;
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  image={image}
-  imageAlt={imageAlt}
-  noindex={noindex}
-  nofollow={nofollow}
-  includeOrgSchema={includeOrgSchema}
-  lang={lang}
-  routeId={routeId}
->
-  <Navbar slot="header" locale={lang} />
-
+<LandingLayout {...props}>
   <slot />
-
-  <LandingFooter slot="footer" locale={lang} />
-</BaseLayout>
+</LandingLayout>
