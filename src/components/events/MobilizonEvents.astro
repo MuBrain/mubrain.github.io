@@ -116,7 +116,7 @@ const copy = isEnglish
   </div>
 </section>
 
-<script>
+<script is:inline>
   const QUERY = `
     query SearchEvents($beginsOn: DateTime, $eventPage: Int, $limit: Int) {
       searchEvents(
