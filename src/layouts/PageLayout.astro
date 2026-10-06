@@ -1,17 +1,15 @@
 ---
 /**
  * PageLayout (i18n-aware)
- * Layout wrapper for standard content pages (non-landing)
- * Uses Header + Footer for consistent navigation with i18n support
+ * Shared shell for standard MuBrain pages.
  *
- * This layout differs from LandingLayout in that it:
- * - Uses the standard Header/Footer instead of Navbar/LandingFooter
- * - Adds proper top padding for fixed header
- * - Is intended for content pages like About, Contact, etc.
+ * Uses the same Navbar + LandingFooter model as the home page and blog
+ * so navigation, spacing, responsive behaviour, theme controls, and language
+ * switching remain visually consistent across the entire site.
  */
 import BaseLayout from './BaseLayout.astro';
-import Header from '@/components/layout/Header.astro';
-import Footer from '@/components/layout/Footer.astro';
+import Navbar from '@/components/landing/Navbar.astro';
+import LandingFooter from '@/components/landing/LandingFooter.astro';
 import { type Locale, defaultLocale } from '@/i18n/config';
 import type { RouteId } from '@/i18n/routes';
 
@@ -54,11 +52,9 @@ const {
   lang={lang}
   routeId={routeId}
 >
-  <Header slot="header" locale={lang} />
+  <Navbar slot="header" locale={lang} />
 
-  <main class="min-h-screen pt-16">
-    <slot />
-  </main>
+  <slot />
 
-  <Footer slot="footer" locale={lang} />
+  <LandingFooter slot="footer" locale={lang} />
 </BaseLayout>
