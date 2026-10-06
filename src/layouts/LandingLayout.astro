@@ -23,6 +23,13 @@ interface Props {
   includeOrgSchema?: boolean;
   lang?: Locale;
   routeId?: RouteId;
+  article?: {
+    publishedTime?: Date;
+    modifiedTime?: Date;
+    authors?: string[];
+    tags?: string[];
+  };
+  hreflangTranslations?: Array<{ locale: Locale; path: string }>;
 }
 
 const {
@@ -35,6 +42,8 @@ const {
   includeOrgSchema = false,
   lang,
   routeId,
+  article,
+  hreflangTranslations,
 } = Astro.props;
 
 // Get locale from props or URL path
@@ -51,6 +60,8 @@ const locale = lang || getLocaleFromPath(Astro.url.pathname);
   includeOrgSchema={includeOrgSchema}
   lang={locale}
   routeId={routeId}
+  article={article}
+  hreflangTranslations={hreflangTranslations}
 >
   <Navbar slot="header" locale={locale} />
 

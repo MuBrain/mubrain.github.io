@@ -1,7 +1,5 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Navbar from '@/components/landing/Navbar.astro';
-import LandingFooter from '@/components/landing/LandingFooter.astro';
+import LandingLayout from '@/layouts/LandingLayout.astro';
 import BlogCard from '@/components/blog/BlogCard.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import { getCollection } from 'astro:content';
@@ -35,11 +33,10 @@ const getPostUrl = (postId: string) => {
 };
 ---
 
-<BaseLayout
+<LandingLayout
   title={t('blog.title')}
   description={t('blog.description')}
 >
-  <Navbar slot="header" />
 
   <!-- Hero Section with decorative background -->
   <section class="relative overflow-hidden bg-background-secondary border-b border-border">
@@ -130,5 +127,4 @@ const getPostUrl = (postId: string) => {
     </div>
   </section>
 
-  <LandingFooter slot="footer" />
-</BaseLayout>
+</LandingLayout>

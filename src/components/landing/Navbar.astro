@@ -24,13 +24,8 @@ const t = useTranslations(locale);
 // Get navigation routes dynamically from i18n routes
 const navRoutes = getNavRoutes(locale);
 
-// Check if we're on the landing page to determine link behavior
-const currentPath = Astro.url.pathname;
 const homePath = getLocalizedPath('home', locale);
-const isLandingPage = currentPath === homePath || currentPath === `${homePath}/`;
-
-// Landing page specific links (anchor links)
-const ctaLink = isLandingPage ? '#cta' : `${homePath}#cta`;
+const blogPath = getLocalizedPath('blog', locale);
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -67,7 +62,7 @@ const ctaLink = isLandingPage ? '#cta' : `${homePath}#cta`;
         >
           <Icon name="github" size="sm" />
         </Button>
-        <Button size="sm" href={getLocalizedPath('blog', locale)}>{t('nav.cta')}</Button>
+        <Button size="sm" href={blogPath}>Blog</Button>
       </div>
     </div>
 
@@ -105,7 +100,7 @@ const ctaLink = isLandingPage ? '#cta' : `${homePath}#cta`;
       <LanguageSwitcher />
       <ThemeToggle />
     </div>
-    <Button fullWidth href={ctaLink}>{t('nav.getStarted')}</Button>
+    <Button fullWidth href={blogPath}>Blog</Button>
   </div>
 </nav>
 
