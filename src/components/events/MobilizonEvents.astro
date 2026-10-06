@@ -1,0 +1,320 @@
+---
+interface Props {
+  locale?: 'fr' | 'en';
+}
+
+const { locale = 'fr' } = Astro.props;
+const isEnglish = locale === 'en';
+
+const copy = isEnglish
+  ? {
+      eyebrow: 'Live community agenda',
+      title: 'Upcoming events',
+      intro:
+        'Upcoming events are loaded directly from the GUM365 Mobilizon platform. The list stays current without duplicating the event data inside MuBrain.',
+      openPlatform: 'Open the full agenda on gum365.ca',
+      loading: 'Loading upcoming events…',
+      empty: 'No upcoming public events are currently published on gum365.ca.',
+      error:
+        'The live Mobilizon agenda could not be loaded. You can still browse the complete event platform directly.',
+      readEvent: 'View event',
+      locationFallback: 'Location to be confirmed',
+      organizerPrefix: 'Organized by',
+    }
+  : {
+      eyebrow: 'Agenda communautaire en direct',
+      title: 'Événements à venir',
+      intro:
+        'Les événements à venir sont chargés directement depuis la plateforme Mobilizon de GUM365. La liste reste ainsi à jour sans dupliquer les données des événements dans MuBrain.',
+      openPlatform: 'Ouvrir l’agenda complet sur gum365.ca',
+      loading: 'Chargement des événements à venir…',
+      empty: 'Aucun événement public à venir n’est actuellement publié sur gum365.ca.',
+      error:
+        'L’agenda Mobilizon n’a pas pu être chargé. Vous pouvez toujours consulter directement la plateforme complète des événements.',
+      readEvent: 'Voir l’événement',
+      locationFallback: 'Lieu à confirmer',
+      organizerPrefix: 'Organisé par',
+    };
+---
+
+<section class="py-16" aria-labelledby="mobilizon-events-title">
+  <div class="container">
+    <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-wide text-brand-600">{copy.eyebrow}</p>
+        <h2 id="mobilizon-events-title" class="mt-3 text-3xl font-bold tracking-tight text-foreground">
+          {copy.title}
+        </h2>
+        <p class="mt-4 text-base leading-7 text-foreground-muted">{copy.intro}</p>
+      </div>
+      <a
+        href="https://gum365.ca"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex shrink-0 items-center justify-center rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-brand-500 hover:text-brand-600"
+      >
+        {copy.openPlatform}
+      </a>
+    </div>
+
+    <div
+      class="mt-8"
+      data-mobilizon-events
+      data-endpoint="https://gum365.ca/api"
+      data-instance="https://gum365.ca"
+      data-locale={isEnglish ? 'en-CA' : 'fr-CA'}
+      data-loading={copy.loading}
+      data-empty={copy.empty}
+      data-error={copy.error}
+      data-read-event={copy.readEvent}
+      data-location-fallback={copy.locationFallback}
+      data-organizer-prefix={copy.organizerPrefix}
+    >
+      <div
+        data-state="loading"
+        class="rounded-2xl border border-border bg-background-subtle p-8 text-foreground-muted"
+        role="status"
+        aria-live="polite"
+      >
+        {copy.loading}
+      </div>
+
+      <div data-state="events" class="hidden grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+
+      <div
+        data-state="empty"
+        class="hidden rounded-2xl border border-border bg-background-subtle p-8"
+      >
+        <p class="text-foreground-muted">{copy.empty}</p>
+        <a
+          href="https://gum365.ca"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex font-semibold text-brand-600 hover:underline"
+        >
+          {copy.openPlatform}
+        </a>
+      </div>
+
+      <div
+        data-state="error"
+        class="hidden rounded-2xl border border-border bg-background-subtle p-8"
+        role="status"
+        aria-live="polite"
+      >
+        <p class="text-foreground-muted">{copy.error}</p>
+        <a
+          href="https://gum365.ca"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex font-semibold text-brand-600 hover:underline"
+        >
+          {copy.openPlatform}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const QUERY = `
+    query SearchEvents($beginsOn: DateTime, $eventPage: Int, $limit: Int) {
+      searchEvents(
+        beginsOn: $beginsOn
+        page: $eventPage
+        limit: $limit
+      ) {
+        total
+        elements {
+          id
+          title
+          uuid
+          beginsOn
+          status
+          picture {
+            url
+          }
+          physicalAddress {
+            description
+            locality
+            region
+          }
+          organizerActor {
+            name
+            preferredUsername
+          }
+        }
+      }
+    }
+  `;
+
+  function setState(root, state) {
+    root.querySelectorAll('[data-state]').forEach((element) => {
+      element.classList.toggle('hidden', element.getAttribute('data-state') !== state);
+    });
+  }
+
+  function createTextElement(tag, className, text) {
+    const element = document.createElement(tag);
+    element.className = className;
+    element.textContent = text;
+    return element;
+  }
+
+  function buildLocation(event, fallback) {
+    const address = event?.physicalAddress;
+    const parts = [address?.description, address?.locality, address?.region].filter(Boolean);
+    return parts.length > 0 ? [...new Set(parts)].join(' · ') : fallback;
+  }
+
+  function renderEventCard(event, root) {
+    const instance = root.dataset.instance || 'https://gum365.ca';
+    const locale = root.dataset.locale || 'fr-CA';
+    const readEvent = root.dataset.readEvent || 'Voir l’événement';
+    const locationFallback = root.dataset.locationFallback || 'Lieu à confirmer';
+    const organizerPrefix = root.dataset.organizerPrefix || 'Organisé par';
+
+    const article = document.createElement('article');
+    article.className =
+      'overflow-hidden rounded-2xl border border-border bg-background-subtle transition-transform duration-200 hover:-translate-y-0.5';
+
+    if (event.picture?.url) {
+      const image = document.createElement('img');
+      image.src = event.picture.url;
+      image.alt = '';
+      image.loading = 'lazy';
+      image.className = 'aspect-[16/9] w-full object-cover';
+      article.appendChild(image);
+    }
+
+    const body = document.createElement('div');
+    body.className = 'p-6';
+
+    const date = new Date(event.beginsOn);
+    const formatter = new Intl.DateTimeFormat(locale, {
+      dateStyle: 'long',
+      timeStyle: 'short',
+      timeZone: 'America/Toronto',
+    });
+    body.appendChild(
+      createTextElement(
+        'p',
+        'text-sm font-semibold uppercase tracking-wide text-brand-600',
+        formatter.format(date)
+      )
+    );
+
+    const heading = document.createElement('h3');
+    heading.className = 'mt-3 text-xl font-semibold leading-snug text-foreground';
+    const titleLink = document.createElement('a');
+    titleLink.href = `${instance}/events/${event.uuid}`;
+    titleLink.target = '_blank';
+    titleLink.rel = 'noopener noreferrer';
+    titleLink.className = 'hover:text-brand-600';
+    titleLink.textContent = event.title;
+    heading.appendChild(titleLink);
+    body.appendChild(heading);
+
+    body.appendChild(
+      createTextElement(
+        'p',
+        'mt-4 text-sm leading-6 text-foreground-muted',
+        buildLocation(event, locationFallback)
+      )
+    );
+
+    const organizer = event.organizerActor?.name || event.organizerActor?.preferredUsername;
+    if (organizer) {
+      body.appendChild(
+        createTextElement(
+          'p',
+          'mt-3 text-sm text-foreground-muted',
+          `${organizerPrefix} ${organizer}`
+        )
+      );
+    }
+
+    const action = document.createElement('a');
+    action.href = `${instance}/events/${event.uuid}`;
+    action.target = '_blank';
+    action.rel = 'noopener noreferrer';
+    action.className = 'mt-5 inline-flex font-semibold text-brand-600 hover:underline';
+    action.textContent = readEvent;
+    body.appendChild(action);
+
+    article.appendChild(body);
+    return article;
+  }
+
+  async function loadMobilizonEvents(root) {
+    if (root.dataset.loaded === 'true') return;
+    root.dataset.loaded = 'true';
+
+    const endpoint = root.dataset.endpoint;
+    if (!endpoint) {
+      setState(root, 'error');
+      return;
+    }
+
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 8000);
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          operationName: 'SearchEvents',
+          query: QUERY,
+          variables: {
+            beginsOn: new Date().toISOString(),
+            eventPage: 1,
+            limit: 9,
+          },
+        }),
+        signal: controller.signal,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Mobilizon API returned ${response.status}`);
+      }
+
+      const payload = await response.json();
+      if (payload.errors?.length) {
+        throw new Error(payload.errors.map((error) => error.message).join('; '));
+      }
+
+      const events = (payload.data?.searchEvents?.elements || [])
+        .filter((event) => event?.uuid && event?.title && event?.beginsOn && event?.status !== 'CANCELLED')
+        .sort((a, b) => new Date(a.beginsOn).getTime() - new Date(b.beginsOn).getTime());
+
+      if (events.length === 0) {
+        setState(root, 'empty');
+        return;
+      }
+
+      const list = root.querySelector('[data-state="events"]');
+      if (!list) throw new Error('Mobilizon event list container is missing.');
+
+      list.replaceChildren(...events.map((event) => renderEventCard(event, root)));
+      setState(root, 'events');
+    } catch (error) {
+      console.warn('Unable to load Mobilizon events from gum365.ca', error);
+      setState(root, 'error');
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+
+  function initMobilizonEvents() {
+    document.querySelectorAll('[data-mobilizon-events]').forEach((root) => {
+      if (root instanceof HTMLElement) loadMobilizonEvents(root);
+    });
+  }
+
+  initMobilizonEvents();
+  document.addEventListener('astro:page-load', initMobilizonEvents);
+</script>
