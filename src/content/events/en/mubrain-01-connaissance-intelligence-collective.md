@@ -7,6 +7,7 @@ timezone: "America/Toronto"
 venue: "AFI Expertise — 500 Saint-Jacques Street, Suite 500, H2Y 1S1"
 city: "Montreal"
 online: false
+registrationUrl: "https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/"
 dateStatus: "confirmed"
 tags:
   - collective-intelligence
@@ -37,3 +38,5 @@ The meetup will take the form of a **MuBrain 5@7**, 100% in person. A few propos
 - What traces should we preserve so the organization can learn?
 
 This meetup opens the new MuBrain research cycle.
+
+**Registration is open and free** on [LinkedIn](https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/). **Important: you must arrive before 5:00 p.m., when access to our offices closes. After 5:00 p.m., it will no longer be possible to join us.**
