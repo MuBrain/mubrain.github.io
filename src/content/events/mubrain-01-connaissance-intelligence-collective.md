@@ -7,6 +7,7 @@ timezone: "America/Toronto"
 venue: "AFI Expertise — 500, rue Saint-Jacques, #500, H2Y 1S1"
 city: "Montréal"
 online: false
+registrationUrl: "https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/"
 dateStatus: "confirmed"
 tags:
   - intelligence-collective
@@ -37,3 +38,5 @@ La rencontre prendra la forme d’un **5@7 MuBrain**, 100 % en présentiel. Quel
 - Quelles traces devons-nous conserver pour permettre à l’organisation d’apprendre ?
 
 Cette rencontre ouvre le nouveau cycle de travail de MuBrain.
+
+**Inscription libre et gratuite** sur [LinkedIn](https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/). **Attention : vous devez arriver avant 17 h, heure de fermeture de l’accès à nos bureaux. Après 17 h, il ne sera plus possible de nous rejoindre.**
