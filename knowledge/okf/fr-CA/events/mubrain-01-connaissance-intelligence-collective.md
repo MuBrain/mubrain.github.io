@@ -20,8 +20,8 @@ venue: "AFI Expertise"
 address: "500, rue Saint-Jacques, #500, Montréal, QC H2Y 1S1"
 city: Montréal
 format: in-person-5a7
-linkedin_event_url: null
-registration_url: null
+linkedin_event_url: https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/
+registration_url: https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/
 public_content: src/content/events/mubrain-01-connaissance-intelligence-collective.md
 ---
 
@@ -75,6 +75,10 @@ Cette première rencontre servira également à poser les bases des prochains tr
 🗓 4 novembre 2026
 🕔 17 h à 19 h
 Format 5@7 — 100 % présentiel
+
+## Inscription et accès
+
+Inscription libre et gratuite sur [LinkedIn](https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/). Les participants doivent arriver avant 17 h, heure de fermeture de l’accès aux bureaux. Après 17 h, il ne sera plus possible de rejoindre la rencontre.
 
 ## Suivi
 
