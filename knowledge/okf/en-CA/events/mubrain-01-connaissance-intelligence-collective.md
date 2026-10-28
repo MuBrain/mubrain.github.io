@@ -23,8 +23,8 @@ venue: "AFI Expertise"
 address: "500 Saint-Jacques Street, Suite 500, Montreal, QC H2Y 1S1"
 city: Montreal
 format: in-person-5a7
-linkedin_event_url: null
-registration_url: null
+linkedin_event_url: https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/
+registration_url: https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/
 public_content: src/content/events/mubrain-01-connaissance-intelligence-collective.md
 ---
 
@@ -78,6 +78,10 @@ This first meetup will also help establish the foundations for MuBrain's next re
 🗓 November 4, 2026  
 🕔 5:00 p.m. to 7:00 p.m.  
 5@7 format — 100% in person
+
+## Registration and access
+
+Registration is open and free on [LinkedIn](https://www.linkedin.com/events/mubrain-1-delaconnaissance-l-in7511137917042397184/). Participants must arrive before 5:00 p.m., when access to the offices closes. After 5:00 p.m., it will no longer be possible to join the meetup.
 
 ## Follow-up
 
