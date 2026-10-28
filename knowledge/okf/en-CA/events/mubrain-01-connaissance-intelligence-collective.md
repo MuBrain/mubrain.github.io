@@ -12,7 +12,7 @@ language: en-CA
 source_of_truth: false
 translation_of: "../../fr-CA/events/mubrain-01-connaissance-intelligence-collective.md"
 translation_status: review
-source_digest: sha256:f104586910838aa2f09283f503d8ce850d319b07cead6398ffe0a9be1fdb8b22
+source_digest: sha256:b0b7757e3f3c32f72c1da991a89ef7823daac576b3b695382291de019869d762
 status: confirmed
 event_id: mubrain-01
 starts_at: 2026-11-04T17:00:00-05:00
